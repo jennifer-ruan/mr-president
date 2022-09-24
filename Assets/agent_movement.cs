@@ -18,8 +18,8 @@ public class agent_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalinput = Input.GetAxis("Horizontal"); //AD
-        verticalinput = Input.GetAxis("Vertical"); // WS
+        horizontalinput = Input.GetAxis("Vertical"); //AD
+        verticalinput = Input.GetAxis("Horizontal"); // WS
  
         if (horizontalinput!=0&&verticalinput!=0)
         {
@@ -27,7 +27,7 @@ public class agent_movement : MonoBehaviour
             verticalinput = verticalinput * 0.6f;
         }
         //WS方向控制
-        this.transform.Translate(Vector3.right * horizontalinput * Time.deltaTime * speed);
+        this.transform.Translate(Vector3.right * horizontalinput * Time.deltaTime * speed * -1);
         // 侧方
         this.transform.Translate(Vector3.forward*  verticalinput * Time.deltaTime * speed);
         // 前后
