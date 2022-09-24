@@ -21,4 +21,14 @@ public class Waypoints : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Harmful")
+        {
+            Debug.Log(gameObject.name);
+            Debug.Log("agent is hit");
+            Destroy(gameObject);
+        }
+    }
 }
