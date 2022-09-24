@@ -32,6 +32,15 @@ public class agent_movement : MonoBehaviour
         this.transform.Translate(Vector3.forward*  verticalinput * Time.deltaTime * speed);
         // 前后
 
+        
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collison.gameObject.tag == "Harmful") {
+            Debug.Log(gameObject.name);
+            Debug.Log("agent is hit");
+            Destroy(gameObject);
+        }
     }
 }
