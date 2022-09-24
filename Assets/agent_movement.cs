@@ -37,7 +37,7 @@ public class agent_movement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collison.gameObject.tag == "Harmful") {
+        if (collision.gameObject.tag == "Harmful") {
             Debug.Log(gameObject.name);
             Debug.Log("agent is hit");
             Destroy(gameObject);
