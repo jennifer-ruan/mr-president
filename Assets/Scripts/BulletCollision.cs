@@ -7,6 +7,7 @@ public class BulletCollision : MonoBehaviour
 
     void Start()
     {
+        //HELLO
     }
 
     void OnCollisionEnter(Collision collision)
