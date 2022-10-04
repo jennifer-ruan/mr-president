@@ -347,9 +347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b36f05eb738a8e4fa50b8a58c5e10dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1981719879}
   smoothSpeed: 0.5
-  offset: {x: 8, y: 8, z: 0}
+  offset: {x: 10, y: 9, z: 0}
+  target: {fileID: 1981719875}
+  sensitivity: 0
 --- !u!1 &50541174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,9 +4115,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3a025138ccae943a9158f0cfdac04c, type: 3}
---- !u!4 &1981719879 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 505952479137031552, guid: c0c7efadc74e73c4ead87a0be9698fa6, type: 3}
+--- !u!1 &1981719875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505952479137031556, guid: c0c7efadc74e73c4ead87a0be9698fa6, type: 3}
   m_PrefabInstance: {fileID: 505952477895344327}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2114233787
