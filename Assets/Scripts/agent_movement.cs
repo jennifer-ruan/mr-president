@@ -8,20 +8,30 @@ public class agent_movement : MonoBehaviour
     public float horizontalinput;//水平参数
     public float verticalinput;//垂直参数
     float speed=10.0f;//声明一个参数，没有规定
+    public double speedmultiple;
+    public float distancefromprez;
+    
 
     public AudioSource randomSound;
     public AudioClip[] audioSources;
+    public GameObject target;
+    public GameObject president;
+    private Vector3 targetpos;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.Find("MoveTarget");
+        president = GameObject.Find("President");
+        targetpos = target.transform.position;
+        speedmultiple = 2.5;
+        distancefromprez = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalinput = Input.GetAxis("Vertical"); //AD
+        /*horizontalinput = Input.GetAxis("Vertical"); //AD
         verticalinput = Input.GetAxis("Horizontal"); // WS
  
         if (horizontalinput!=0&&verticalinput!=0)
@@ -33,9 +43,25 @@ public class agent_movement : MonoBehaviour
         this.transform.Translate(Vector3.right * horizontalinput * Time.deltaTime * speed * -1);
         // 侧方
         this.transform.Translate(Vector3.forward*  verticalinput * Time.deltaTime * speed);
-        // 前后
+        // 前后*/
 
-        
+        targetpos = target.transform.position;
+        speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos))*speedmultiple);
+        Debug.DrawLine(transform.position, targetpos + new Vector3(0,1,0), Color.white, 100f, false);
+
+        Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
+        Vector3 angle = transform.position - president.transform.position;
+        if (!(Vector3.Distance(movement, president.transform.position) < distancefromprez))
+        {
+            transform.position = movement;
+        }
+        else
+        {
+            transform.Translate(angle * Time.deltaTime * speed);
+        }
+
+        transform.right = -(angle);
+
     }
 
     void OnCollisionEnter(Collision collision)
