@@ -17,6 +17,7 @@ public class agent_movement : MonoBehaviour
     public GameObject president;
     private Vector3 targetpos;
     public float jumpAmount = 5;
+    public bool EndScreenOn = false;
 
     Rigidbody rb;
 
@@ -34,6 +35,15 @@ public class agent_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // check if president is still in the game, if not end game
+        if (president == null)
+        {
+            SceneManager.LoadScene("End");
+            EndScreenOn = true;
+        }
+
+
         targetpos = target.transform.position;
 
          if (Input.GetKeyDown(KeyCode.Space))
