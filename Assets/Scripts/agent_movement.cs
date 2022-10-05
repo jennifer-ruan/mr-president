@@ -28,7 +28,7 @@ public class agent_movement : MonoBehaviour
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
         speedmultiple = 20;
-        personalspace = 5f;
+        personalspace = 2f;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class agent_movement : MonoBehaviour
     {
         targetpos = target.transform.position;
 
-         if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
         }
@@ -61,7 +61,8 @@ public class agent_movement : MonoBehaviour
 
     }
 
-    void addJumpForce() {
+    void addJumpForce()
+    {
         rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
     }
 
