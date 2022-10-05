@@ -16,6 +16,8 @@ public class agent_movement : MonoBehaviour
     public GameObject target;
     public GameObject president;
     private Vector3 targetpos;
+    public float jumpAmount = 5;
+
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -25,7 +27,7 @@ public class agent_movement : MonoBehaviour
         president = GameObject.Find("President");
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
-        speedmultiple = 5;
+        speedmultiple = 20;
         personalspace = 5f;
     }
 
@@ -45,8 +47,13 @@ public class agent_movement : MonoBehaviour
         // 侧方
         this.transform.Translate(Vector3.forward*  verticalinput * Time.deltaTime * speed);
         // 前后*/
-
         targetpos = target.transform.position;
+
+         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
+        }
+
         speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos)) * speedmultiple);
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
@@ -67,13 +74,18 @@ public class agent_movement : MonoBehaviour
 
     }
 
+    void addJumpForce() {
+        rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject != null && collision.gameObject.tag == "Harmful")
         {
 
-            randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
-            randomSound.Play();
+            // randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
+            AudioSource.PlayClipAtPoint(audioSources[Random.Range(0, audioSources.Length)], transform.position);
+            // randomSound.Play ();
 
             Debug.Log(gameObject.name);
             Debug.Log("agent is hit");
