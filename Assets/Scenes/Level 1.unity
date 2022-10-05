@@ -905,6 +905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rotator
       objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584949, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: far clip plane
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5446443773538584951, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
       propertyPath: target
       value: 
