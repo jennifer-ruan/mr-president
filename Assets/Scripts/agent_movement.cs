@@ -34,19 +34,6 @@ public class agent_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*horizontalinput = Input.GetAxis("Vertical"); //AD
-        verticalinput = Input.GetAxis("Horizontal"); // WS
- 
-        if (horizontalinput!=0&&verticalinput!=0)
-        {
-            horizontalinput = horizontalinput * 0.6f;
-            verticalinput = verticalinput * 0.6f;
-        }
-        //WS方向控制
-        this.transform.Translate(Vector3.right * horizontalinput * Time.deltaTime * speed * -1);
-        // 侧方
-        this.transform.Translate(Vector3.forward*  verticalinput * Time.deltaTime * speed);
-        // 前后*/
         targetpos = target.transform.position;
 
          if (Input.GetKeyDown(KeyCode.Space))
@@ -70,7 +57,7 @@ public class agent_movement : MonoBehaviour
             // transform.Translate(angle * Time.deltaTime * speed);
         }
 
-        transform.forward = -(angle);
+        transform.forward = angle;
 
     }
 
