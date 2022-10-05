@@ -11,12 +11,20 @@ public class Waypoints : MonoBehaviour
 
     void Update()
     {
-        if(Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
+        if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
         {
             current++;
             if (current >= waypoints.Length)
             {
                 current = 0;
+            }
+            if (waypoints[current].name.Substring(3) == "waypoint")
+            {
+                waypoints[current].transform.GetChild(0).gameObject.SetActive(true);
+            }
+            else if (waypoints[current].name.Substring(3) == "exit waypoint")
+            {
+                waypoints[current - 1].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
