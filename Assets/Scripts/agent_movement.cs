@@ -60,8 +60,8 @@ public class agent_movement : MonoBehaviour
         }
         else
         {
-            // rigidbody.AddRelativeForce(direction.normalized * Time.deltaTime * speed, ForceMode.Force);
-            transform.Translate(angle * Time.deltaTime);
+            rb.MovePosition(transform.position + (angle * Time.deltaTime * speed));
+            // transform.Translate(angle * Time.deltaTime * speed);
         }
 
         transform.right = -(angle);
