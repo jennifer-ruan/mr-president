@@ -9,7 +9,7 @@ public class agent_movement : MonoBehaviour
     public float verticalinput;//垂直参数
     float speed=10.0f;//声明一个参数，没有规定
     public double speedmultiple;
-    public float distancefromprez;
+    public float personalspace;
     
 
     public AudioSource randomSound;
@@ -27,7 +27,7 @@ public class agent_movement : MonoBehaviour
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
         speedmultiple = 5;
-        distancefromprez = 5f;
+        personalspace = 5f;
     }
 
     // Update is called once per frame
@@ -54,9 +54,9 @@ public class agent_movement : MonoBehaviour
         Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
         Vector3 angle = transform.position - president.transform.position;
         // If the agents are outside the president's 'personal space'
-        if (!(Vector3.Distance(movement, president.transform.position) < distancefromprez))
+        if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
         {
-            transform.position = movement;
+            rb.MovePosition(movement);
         }
         else
         {
@@ -64,7 +64,7 @@ public class agent_movement : MonoBehaviour
             // transform.Translate(angle * Time.deltaTime * speed);
         }
 
-        transform.right = -(angle);
+        transform.forward = -(angle);
 
     }
 
