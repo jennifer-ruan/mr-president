@@ -17,6 +17,7 @@ public class agent_movement : MonoBehaviour
     public GameObject target;
     public GameObject president;
     private Vector3 targetpos;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class agent_movement : MonoBehaviour
         target = GameObject.Find("MoveTarget");
         president = GameObject.Find("President");
         targetpos = target.transform.position;
-        speedmultiple = 2.5;
+        rb = GetComponent<Rigidbody>();
+        speedmultiple = 5;
         distancefromprez = 5f;
     }
 
@@ -51,13 +53,15 @@ public class agent_movement : MonoBehaviour
 
         Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
         Vector3 angle = transform.position - president.transform.position;
+        // If the agents are outside the president's 'personal space'
         if (!(Vector3.Distance(movement, president.transform.position) < distancefromprez))
         {
             transform.position = movement;
         }
         else
         {
-            transform.Translate(angle * Time.deltaTime * speed);
+            // rigidbody.AddRelativeForce(direction.normalized * Time.deltaTime * speed, ForceMode.Force);
+            transform.Translate(angle * Time.deltaTime);
         }
 
         transform.right = -(angle);

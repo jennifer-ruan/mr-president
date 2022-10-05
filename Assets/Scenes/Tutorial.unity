@@ -3243,10 +3243,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 314749, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 331451376605234375, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3294,6 +3290,10 @@ PrefabInstance:
     - target: {fileID: 1140076914215411325, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
       propertyPath: m_Name
       value: Character_GEO Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849592451348092973, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
@@ -4250,10 +4250,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1567673059}
     m_Modifications:
-    - target: {fileID: 314746, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 331451376605234375, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4301,6 +4297,14 @@ PrefabInstance:
     - target: {fileID: 1140076914215411325, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
       propertyPath: m_Name
       value: Character_GEO
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
+      propertyPath: m_Volume
+      value: 0.565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
@@ -4390,7 +4394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4617878259610352200, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4617878259610352200, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4420,6 +4424,10 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1881928590}
+    - target: {fileID: 5160921432580922796, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
       propertyPath: m_Name
       value: President
