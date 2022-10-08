@@ -44,31 +44,56 @@ public class agent_movement : MonoBehaviour
             EndScreenOn = true;
         }
 
+        else {
+            targetpos = target.transform.position;
 
-        targetpos = target.transform.position;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
+            speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos)) * speedmultiple);
+            Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
+
+            Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
+            Vector3 angle = transform.position - president.transform.position;
+            // If the agents are outside the president's 'personal space'
+            if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
+            {
+                rb.MovePosition(movement);
+            }
+            else
+            {
+                rb.MovePosition(transform.position + (angle * Time.deltaTime * speed));
+                // transform.Translate(angle * Time.deltaTime * speed);
+            }
+
+            transform.forward = angle;
         }
+        // targetpos = target.transform.position;
 
-        speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos)) * speedmultiple);
-        Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
+        // }
 
-        Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
-        Vector3 angle = transform.position - president.transform.position;
-        // If the agents are outside the president's 'personal space'
-        if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
-        {
-            rb.MovePosition(movement);
-        }
-        else
-        {
-            rb.MovePosition(transform.position + (angle * Time.deltaTime * speed));
-            // transform.Translate(angle * Time.deltaTime * speed);
-        }
+        // speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos)) * speedmultiple);
+        // Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
-        transform.forward = angle;
+        // Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
+        // Vector3 angle = transform.position - president.transform.position;
+        // // If the agents are outside the president's 'personal space'
+        // if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
+        // {
+        //     rb.MovePosition(movement);
+        // }
+        // else
+        // {
+        //     rb.MovePosition(transform.position + (angle * Time.deltaTime * speed));
+        //     // transform.Translate(angle * Time.deltaTime * speed);
+        // }
+
+        // transform.forward = angle;
 
     }
 
