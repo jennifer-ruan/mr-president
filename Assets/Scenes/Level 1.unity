@@ -314,7 +314,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cec386f15cb57384baae940afa3ae4e3, type: 3}
 --- !u!4 &435899523 stripped
 Transform:
@@ -991,6 +992,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2752081459713978200, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -2752081459713978200, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -2752081459713978200, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 2719064692459441026, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1039,7 +1052,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: President
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
 --- !u!1001 &2095936524
 PrefabInstance:
