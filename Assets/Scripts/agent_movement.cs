@@ -60,11 +60,11 @@ public class agent_movement : MonoBehaviour
             // If the agents are outside the president's 'personal space'
             if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
             {
-                rb.MovePosition(movement);
+                rb.AddForce(-movement*Time.deltaTime * speed);
             }
             else
             {
-                rb.MovePosition(transform.position + (angle * Time.deltaTime * speed));
+                rb.AddForce(transform.position + (angle * Time.deltaTime * speed));
                 // transform.Translate(angle * Time.deltaTime * speed);
             }
 
