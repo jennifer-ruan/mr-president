@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 372742084837132035}
   - component: {fileID: 372742084837132033}
   - component: {fileID: 372742084837132038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Agent 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,3 +239,4 @@ MonoBehaviour:
   target: {fileID: 6460820490428509372, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
   president: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
   jumpAmount: 5
+  EndScreenOn: 0

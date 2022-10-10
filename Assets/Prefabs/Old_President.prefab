@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8107697358467560279}
   - component: {fileID: 3859880771197475297}
   - component: {fileID: 1800261357640623223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: R_Leg_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5160921432580922797}
   - component: {fileID: 5160921432580922785}
   - component: {fileID: 2708578735137960413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Old_President
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 9197878880448803424}
   - component: {fileID: 6794854505398723127}
   - component: {fileID: 8502779066887308959}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tie_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 3594829773612468314}
   - component: {fileID: 7843122901889257776}
   - component: {fileID: 7036876234578646327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: L_Leg_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 772033529996844589}
   - component: {fileID: 1571182474664269560}
   - component: {fileID: 1850354469653979359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 8283115729650604879}
   - component: {fileID: 7609112993203089562}
   - component: {fileID: 4642615887949359039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Torso_GEO
   m_TagString: Untagged
   m_Icon: {fileID: 0}

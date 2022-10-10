@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5794577463718737561}
   - component: {fileID: 5266743386278217000}
   - component: {fileID: 2465359688119053424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PM3D_Cylinder3D1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4303484438773228229}
   - component: {fileID: 4554151235369996920}
   - component: {fileID: 2465359688119053425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CHAR_GETDOWN_President_V03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 2465359688119053423}
   - component: {fileID: 2465359688119053422}
   - component: {fileID: 2465359688119053421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: President
   m_TagString: Untagged
   m_Icon: {fileID: 0}

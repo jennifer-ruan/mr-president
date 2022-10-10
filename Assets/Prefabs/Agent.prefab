@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8414849862165704270}
   - component: {fileID: 8414849862165704269}
   - component: {fileID: 8604175172786407758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalinput: 0
   verticalinput: 0
+  speedmultiple: 0
+  personalspace: 0
   randomSound: {fileID: 8604175172786407758}
   audioSources:
   - {fileID: 8300000, guid: 7a2685b37d45dba4d82f05b3d9032015, type: 3}
@@ -121,6 +123,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 01731623e07dab74e98c83fb99d7f7a0, type: 3}
   - {fileID: 8300000, guid: c52eb4278a286914581dfa4ed4b86cfb, type: 3}
   - {fileID: 8300000, guid: 15fc1995b6923e64d8bb7b0066e4bd39, type: 3}
+  target: {fileID: 0}
+  president: {fileID: 0}
+  jumpAmount: 5
+  EndScreenOn: 0
 --- !u!82 &8604175172786407758
 AudioSource:
   m_ObjectHideFlags: 0
