@@ -20,6 +20,7 @@ public class agent_movement : MonoBehaviour
     public float jumpAmount = 5;
     public bool EndScreenOn = false;
 
+    GameOverManager gameOverManager;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -38,10 +39,11 @@ public class agent_movement : MonoBehaviour
     {
 
         // check if president is still in the game, if not end game
-        if (president == null)
-        {
-            SceneManager.LoadScene("End");
-            EndScreenOn = true;
+        if (president == null){
+            Debug.Log("game over");
+            gameOverManager.SetGameOver();
+            // SceneManager.LoadScene("End");
+            // EndScreenOn = true;
         }
 
         else {
