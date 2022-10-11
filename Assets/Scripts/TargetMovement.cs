@@ -19,6 +19,11 @@ public class TargetMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveTarget();
+    }
+
+    void moveTarget()
+    {
         horizontalinput = Input.GetAxis("Horizontal");
         verticalinput = Input.GetAxis("Vertical");
         var right = maincamera.right;
@@ -36,9 +41,8 @@ public class TargetMovement : MonoBehaviour
         forward.y = 0f;
         right.Normalize();
         forward.Normalize();
-        
+
         transform.Translate(right * horizontalinput * Time.deltaTime * speed);
         transform.Translate(forward * verticalinput * Time.deltaTime * speed);
-        
     }
 }
