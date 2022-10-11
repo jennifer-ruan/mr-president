@@ -4,7 +4,7 @@ public class CameraScript : MonoBehaviour
 {
     public float smoothSpeed = 0.5f;
     public Vector3 offset;
-    public Transform target;
+    Transform target;
     public float sensitivity;
     public float pLerp = .02f;
     public float rLerp = .01f;
@@ -23,10 +23,11 @@ public class CameraScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        float rotateHorizontal = Input.GetAxis("Mouse X");
-        float rotateVertical = Input.GetAxis("Mouse Y");
+        //float rotateHorizontal = Input.GetAxis("Mouse X");
+        //float rotateVertical = Input.GetAxis("Mouse Y");
         /*transform.RotateAround(target.position, Vector3.up, -rotateHorizontal * sensitivity);
         transform.RotateAround(target.position, target.right, -rotateVertical * sensitivity);*/
+
         transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);
     }

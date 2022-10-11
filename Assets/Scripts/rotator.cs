@@ -18,8 +18,8 @@ public class rotator : MonoBehaviour
     void Update()
     {
         turn.x += Input.GetAxis("Mouse X");
-        turn.y += Input.GetAxis("Mouse Y");
+        //turn.y += Input.GetAxis("Mouse Y");
 
-        transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
+        transform.localRotation = Quaternion.Euler(0, turn.x, 0);
     }
 }
