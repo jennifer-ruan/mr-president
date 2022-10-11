@@ -9,7 +9,7 @@ public class agent_movement : MonoBehaviour
     public float horizontalinput;//水平参数
     public float verticalinput;//垂直参数
     float speed = 10.0f;//声明一个参数，没有规定
-    public double speedmultiple;
+    public float speedmultiple;
     public float personalspace;
 
     public AudioSource randomSound;
@@ -30,7 +30,7 @@ public class agent_movement : MonoBehaviour
         president = GameObject.Find("President");
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
-        speedmultiple = 20;
+        speedmultiple = 2000f;
         personalspace = 2f;
     }
 
@@ -54,21 +54,26 @@ public class agent_movement : MonoBehaviour
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
             }
 
-            speed = (float)(System.Math.Sqrt((double)Vector3.Distance(transform.position, targetpos)) * speedmultiple);
+            speed = Vector3.Distance(transform.position, targetpos)* Vector3.Distance(transform.position, targetpos) * speedmultiple;
             Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
-            Vector3 movement = Vector3.MoveTowards(transform.position, targetpos, Time.deltaTime * speed);
+            //Vector3 movement = Vector3.MoveTowards(transform.position, targetpos);
             Vector3 angle = transform.position - president.transform.position;
             // If the agents are outside the president's 'personal space'
-            if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
+            /*if (!(Vector3.Distance(movement, president.transform.position) < personalspace))
             {
-                rb.AddForce(-movement*Time.deltaTime * speed);
+                rb.AddForce(targetpos);
+                Debug.Log("force added");
             }
             else
             {
                 rb.AddForce(transform.position + (angle * Time.deltaTime * speed));
+                Debug.Log("force added 2");
                 // transform.Translate(angle * Time.deltaTime * speed);
-            }
+            }*/
+            rb.AddForce(targetpos - transform.position);
+            Debug.Log("force added");
+
 
             transform.forward = angle;
         }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2567144601280647163}
   - component: {fileID: 2567144601280647162}
   - component: {fileID: 2567144601280647161}
+  - component: {fileID: -4909841888986261487}
   m_Layer: 8
   m_Name: PersonalSpace
   m_TagString: Untagged
@@ -98,3 +99,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-4909841888986261487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567144601280647160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d4545f9f00bff4989113367908b380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  president: {fileID: 3384418023831654712, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
