@@ -7,6 +7,8 @@ public class BulletCollision : MonoBehaviour
 
     public GameObject target;
     public float speed;
+    GameObject line;
+    LineRenderer lr;
 
     GameOverManager gameOverManager;
 
@@ -14,28 +16,33 @@ public class BulletCollision : MonoBehaviour
     {
         speed = Random.Range(30, 50) * 1f;
         target = GameObject.Find("President");
+
+        line = new GameObject("Line");
+        line.transform.position = transform.position;
+        line.AddComponent<LineRenderer>();
+        lr = line.GetComponent<LineRenderer>();
+        lr.SetWidth(0.8f, 0.3f);
+        lr.material = new Material(Shader.Find("Sprites/Default"));
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, target.transform.position);
+
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(0.4f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) }
+        );
+        lr.colorGradient = gradient;
     }
 
     void Update()
     {
         if (target){
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * speed);
+            lr.SetPosition(1, target.transform.position);
         }
         else {
             Debug.Log("NO TARGET");
-            Destroy(gameObject);
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("DESTROYED" + collision.gameObject.name);
-        if (collision.gameObject.name == "President"){
-            Debug.Log("game over");
-            Destroy(gameObject);
-            FindObjectOfType<GameOverManager>().SetGameOver();
-        }
-        else{
+            Destroy(line);
             Destroy(gameObject);
         }
     }

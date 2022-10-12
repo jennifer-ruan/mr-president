@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour
         //float rotateVertical = Input.GetAxis("Mouse Y");
         /*transform.RotateAround(target.position, Vector3.up, -rotateHorizontal * sensitivity);
         transform.RotateAround(target.position, target.right, -rotateVertical * sensitivity);*/
-        if (president){
+        if (president && target){
                 /*transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
                 transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);*/
         }
