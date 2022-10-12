@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     public float sensitivity;
     public float pLerp = .02f;
     public float rLerp = .01f;
-    public GameObject president;
+    GameObject president;
 
     void Start()
     {

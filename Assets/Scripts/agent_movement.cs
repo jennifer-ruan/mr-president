@@ -84,7 +84,7 @@ public class agent_movement : MonoBehaviour
     void moveAgent()
     {
         float distance = Vector3.Distance(transform.position, targetpos);
-        speed = distance * distance * distance* speedmultiple;
+        speed = distance * distance * 10* speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
         Vector3 angle = transform.position - president.transform.position;
