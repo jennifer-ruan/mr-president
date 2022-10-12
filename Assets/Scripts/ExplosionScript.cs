@@ -14,7 +14,7 @@ public class ExplosionScript : MonoBehaviour
     void Start()
     {
         lethalRad = 3f;
-        knockRad = 15f;
+        knockRad = 10f;
         var agents = GameObject.Find("Agents").transform;
         prez = GameObject.Find("President");
 
@@ -64,7 +64,15 @@ public class ExplosionScript : MonoBehaviour
             }else if (dist < knockRad)
             {
                 Debug.Log("weeee");
-                c.gameObject.GetComponent<Rigidbody>().AddForce(c.position - transform.position);
+                if (c.gameObject.name == "President")
+                {
+                    Debug.Log(dist);
+                    Destroy(c.gameObject);
+                }
+                else
+                {
+                    c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 10, ForceMode.Impulse);
+                }
             }
         }
     }
