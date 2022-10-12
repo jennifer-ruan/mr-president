@@ -115,6 +115,7 @@ MonoBehaviour:
   horizontalinput: 0
   verticalinput: 0
   maincamera: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1001 &6460820489450476958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,11 +177,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
       propertyPath: m_LocalPosition.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13052616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
