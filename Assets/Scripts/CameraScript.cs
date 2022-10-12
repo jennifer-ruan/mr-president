@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
 
     void Start()
     {
-        /*target = GameObject.Find("rotator").transform;*/
+        //target = GameObject.Find("rotator").transform;
         president = GameObject.Find("President");
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -30,8 +30,8 @@ public class CameraScript : MonoBehaviour
         /*transform.RotateAround(target.position, Vector3.up, -rotateHorizontal * sensitivity);
         transform.RotateAround(target.position, target.right, -rotateVertical * sensitivity);*/
         if (president){
-            transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
-            transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);
+                /*transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
+                transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);*/
         }
         else{
             Cursor.lockState = CursorLockMode.None;

@@ -94,4 +94,9 @@ public class agent_movement : MonoBehaviour
 
         transform.forward = angle;
     }
+    public void Push(Vector3 dir)
+    {
+        Rigidbody r = GetComponent<Rigidbody>();
+        r.AddForce(dir);
+    }
 }
