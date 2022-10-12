@@ -213,8 +213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalinput: 0
   verticalinput: 0
-  speedmultiple: 200000000
+  speedmultiple: 0
   personalspace: 0
+  dragVar: 5
   randomSound: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
   audioSources:
   - {fileID: 8300000, guid: 7a2685b37d45dba4d82f05b3d9032015, type: 3}
@@ -225,7 +226,6 @@ MonoBehaviour:
   target: {fileID: 6460820490428509372, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
   president: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
   jumpAmount: 5
-  EndScreenOn: 0
 --- !u!136 &-1374451385735484131
 CapsuleCollider:
   m_ObjectHideFlags: 0
