@@ -8,18 +8,22 @@ public class TargetMovement : MonoBehaviour
     public float verticalinput;
     float speed = 10.0f;
     public Transform maincamera;
+    public GameObject target;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.Find("President");
         maincamera = GameObject.Find("Main Camera").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveTarget();
+        if (target){
+            moveTarget();
+        }
     }
 
     void moveTarget()

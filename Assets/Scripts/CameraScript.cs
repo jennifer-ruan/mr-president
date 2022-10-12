@@ -8,10 +8,12 @@ public class CameraScript : MonoBehaviour
     public float sensitivity;
     public float pLerp = .02f;
     public float rLerp = .01f;
+    public GameObject president;
 
     void Start()
     {
         /*target = GameObject.Find("rotator").transform;*/
+        president = GameObject.Find("President");
         Cursor.lockState = CursorLockMode.Locked;
     }
     
@@ -27,8 +29,12 @@ public class CameraScript : MonoBehaviour
         //float rotateVertical = Input.GetAxis("Mouse Y");
         /*transform.RotateAround(target.position, Vector3.up, -rotateHorizontal * sensitivity);
         transform.RotateAround(target.position, target.right, -rotateVertical * sensitivity);*/
-
-        transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
-        transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);
+        if (president){
+            transform.position = Vector3.Lerp(transform.position, target.position, pLerp);
+            transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, rLerp);
+        }
+        else{
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

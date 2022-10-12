@@ -8,6 +8,7 @@ public class ShootBullets : MonoBehaviour
     public GameObject bullet;
     public Transform shooter;
     public float speed;
+    public GameObject target;
 
     public AudioSource randomSound;
     public AudioClip[] audioSources;
@@ -15,13 +16,14 @@ public class ShootBullets : MonoBehaviour
     void Start()
     {
         speed = Random.Range(30, 50) * 1f;
+        target = GameObject.Find("President");
         randomSound = gameObject.GetComponent<AudioSource>();
         StartCoroutine(Fire());
     }
 
     public IEnumerator Fire() 
     {        
-        while (true)
+        while (target)
         {
 
             randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];

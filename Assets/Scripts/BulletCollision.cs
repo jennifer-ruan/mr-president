@@ -8,6 +8,8 @@ public class BulletCollision : MonoBehaviour
     public GameObject target;
     public float speed;
 
+    GameOverManager gameOverManager;
+
     void Start()
     {
         speed = Random.Range(30, 50) * 1f;
@@ -27,7 +29,14 @@ public class BulletCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(gameObject.name);
-        Destroy(gameObject);
+        Debug.Log("DESTROYED" + collision.gameObject.name);
+        if (collision.gameObject.name == "President"){
+            Debug.Log("game over");
+            Destroy(gameObject);
+            FindObjectOfType<GameOverManager>().SetGameOver();
+        }
+        else{
+            Destroy(gameObject);
+        }
     }
 }

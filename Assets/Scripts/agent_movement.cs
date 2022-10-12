@@ -19,9 +19,9 @@ public class agent_movement : MonoBehaviour
     public GameObject president;
     private Vector3 targetpos;
     public float jumpAmount = 5;
-    public bool EndScreenOn = false;
+    // public bool EndScreenOn = false;
 
-    GameOverManager gameOverManager;
+    // GameOverManager gameOverManager;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -40,14 +40,15 @@ public class agent_movement : MonoBehaviour
     {
 
         // check if president is still in the game, if not end game
-        if (president == null){
-            Debug.Log("game over");
-            gameOverManager.SetGameOver();
-            // SceneManager.LoadScene("End");
-            // EndScreenOn = true;
-        }
+        // if (!president){
+        //     Debug.Log("game over");
+        //     gameOverManager.SetGameOver();
+        //     // SceneManager.LoadScene("End");
+        //     // EndScreenOn = true;
+        // }
 
-        else {
+        // else {
+            if (president){
             targetpos = target.transform.position;
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -55,8 +56,9 @@ public class agent_movement : MonoBehaviour
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
             }
             moveAgent();
+            }
             
-        }
+        // }
 
     }
 
@@ -89,7 +91,7 @@ public class agent_movement : MonoBehaviour
 
         rb.drag = dragVar / distance;
         rb.AddForce(targetpos - transform.position);
-        Debug.Log("force added");
+        // Debug.Log("force added");
 
 
         transform.forward = angle;

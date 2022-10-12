@@ -5,17 +5,28 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
 
+    GameObject gameOverScreen;
+    bool gameHasEnded = false;
+
+    void Start() {
+        gameOverScreen = GameObject.Find("Game Over Screen");
+        gameHasEnded = false;
+        gameOverScreen.SetActive(false);
+    }
 
     public void SetGameOver()
     {
-        Debug.Log("Set Game Over functio is called");
-        gameObject.SetActive(true);
+        if (gameHasEnded == false){
+            gameHasEnded = true;
+            Debug.Log("Set Game Over function is called"); 
+            gameOverScreen.SetActive(true);
+        }
     }
 
     public void RestartGame()
     {
         Debug.Log("Start Game");
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ReturnMenu()
@@ -23,16 +34,4 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("return to menu");
         SceneManager.LoadScene("NewMenu");
     }
-
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
 }

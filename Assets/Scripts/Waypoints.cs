@@ -35,7 +35,7 @@ public class Waypoints : MonoBehaviour
         if (collision.gameObject.tag == "Harmful")
         {
             Debug.Log(gameObject.name);
-            Debug.Log("agent is hit");
+            Debug.Log("president is hit");
             Destroy(gameObject);
         }
     }

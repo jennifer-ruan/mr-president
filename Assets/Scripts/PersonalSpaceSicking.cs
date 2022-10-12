@@ -16,6 +16,8 @@ public class PersonalSpaceSicking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = president.transform.position;
+        if (president){
+            transform.position = president.transform.position;
+        }
     }
 }
