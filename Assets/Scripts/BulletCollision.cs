@@ -46,4 +46,17 @@ public class BulletCollision : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("DESTROYED" + collision.gameObject.name);
+        if (collision.gameObject.name == "President"){
+            Debug.Log("game over");
+            Destroy(gameObject);
+            FindObjectOfType<GameOverManager>().SetGameOver();
+        }
+        else{
+            Destroy(gameObject);
+        }
+    }
 }
