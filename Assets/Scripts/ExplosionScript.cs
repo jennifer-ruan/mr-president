@@ -35,18 +35,22 @@ public class ExplosionScript : MonoBehaviour
             Explode();
             Destroy(this.gameObject);
         }
+        
     }
 
     public bool CharInRange()
     {
         foreach(Transform c in chars)
         {
-            //Debug.Log(c);
-            //Debug.Log(Vector3.Distance(transform.position, c.position));
-            if (Vector3.Distance(transform.position, c.position) < lethalRad)
+            if (c != null)
             {
-                
-                return true;
+                //Debug.Log(c);
+                //Debug.Log(Vector3.Distance(transform.position, c.position));
+                if (Vector3.Distance(transform.position, c.position) < lethalRad)
+                {
+
+                    return true;
+                }
             }
         }
         return false;
@@ -56,22 +60,27 @@ public class ExplosionScript : MonoBehaviour
         Debug.Log("BOOM!!!");
         foreach (Transform c in chars)
         {
-            float dist = Vector3.Distance(transform.position, c.position);
-            if (dist < lethalRad)
+            if (c != null)
             {
-                Destroy(c.gameObject);
-                Debug.Log("deadge");
-            }else if (dist < knockRad)
-            {
-                Debug.Log("weeee");
-                if (c.gameObject.name == "President")
+                float dist = Vector3.Distance(transform.position, c.position);
+                if (dist < lethalRad)
                 {
-                    Debug.Log(dist);
                     Destroy(c.gameObject);
+                    Debug.Log("deadge");
                 }
-                else
+                else if (dist < knockRad)
                 {
-                    c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 10, ForceMode.Impulse);
+                    Debug.Log("weeee");
+                    if (c.gameObject.name == "President")
+                    {
+                        Debug.Log(dist);
+                        Destroy(c.gameObject);
+                        FindObjectOfType<GameOverManager>().SetGameOver();
+                    }
+                    else
+                    {
+                        c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 10, ForceMode.Impulse);
+                    }
                 }
             }
         }
