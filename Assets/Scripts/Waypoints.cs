@@ -11,12 +11,16 @@ public class Waypoints : MonoBehaviour
 
     void Update()
     {
+        if (Vector3.Distance(transform.position, waypoints[current].transform.position) < 1.5f)
+        {
+            FindObjectOfType<VictoryManager>().SetGameWin();
+        }
         if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
         {
-            current++;
-            if (current >= waypoints.Length)
+            
+            if (current < waypoints.Length-1)
             {
-                current = 0;
+                    current++;
             }
             if (waypoints[current].name.Substring(3) == "waypoint")
             {
