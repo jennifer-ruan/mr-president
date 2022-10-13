@@ -67,6 +67,10 @@ public class ExplosionScript : MonoBehaviour
                 {
                     Destroy(c.gameObject);
                     Debug.Log("deadge");
+                    if (c.gameObject.name == "President")
+                    {
+                        FindObjectOfType<GameOverManager>().SetGameOver();
+                    }
                 }
                 else if (dist < knockRad)
                 {
