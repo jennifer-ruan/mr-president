@@ -81,12 +81,13 @@ public class agent_movement : MonoBehaviour
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
         
         //stay in place on the ground
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationZ;
         yield return new WaitForSeconds(2f);
         
         //restore normal constraints
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         
+        //get up motion
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
 
         //resume movement, get down cooldown

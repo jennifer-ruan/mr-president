@@ -9,6 +9,8 @@ public class TargetMovement : MonoBehaviour
     float speed = 10.0f;
     public Transform maincamera;
     public GameObject target;
+    public bool isGettingDown = false;
+    public bool isGetDownReady = true;
 
 
     // Start is called before the first frame update
@@ -22,18 +24,38 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         if (target){
-            moveTarget();
+            if (Input.GetKeyDown(KeyCode.G) && isGetDownReady)
+            {
+                isGettingDown = true;
+                StartCoroutine(GetDown());
+            }
+            StartCoroutine(moveTarget());
         }
     }
 
-    void moveTarget()
+    IEnumerator GetDown()
     {
+        isGetDownReady = false;
+        yield return new WaitForSeconds(2f);
+
+        //resume movement, get down cooldown
+        isGettingDown = false;
+        yield return new WaitForSeconds(5f);
+
+        //cooldown complete
+        isGetDownReady = true;
+    }
+
+    IEnumerator moveTarget()
+    {
+        while (isGettingDown)
+        {
+            yield return null;
+        }
         horizontalinput = Input.GetAxis("Horizontal");
         verticalinput = Input.GetAxis("Vertical");
         var right = maincamera.right;
         var forward = maincamera.forward;
-
-
 
         if (horizontalinput != 0 && verticalinput != 0)
         {
