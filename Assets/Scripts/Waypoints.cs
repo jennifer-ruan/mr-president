@@ -9,6 +9,7 @@ public class Waypoints : MonoBehaviour
     public float speed;
     float WPradius = 1;
     public bool isGettingDown = false;
+    public bool isGetDownReady = true;
 
     Rigidbody rb;
 
@@ -19,7 +20,7 @@ public class Waypoints : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G) && isGetDownReady)
         {
             isGettingDown = true;
             StartCoroutine(GetDown());
@@ -30,6 +31,7 @@ public class Waypoints : MonoBehaviour
 
     IEnumerator GetDown()
     {
+        isGetDownReady = false;
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
@@ -42,8 +44,13 @@ public class Waypoints : MonoBehaviour
         Vector3 waypointAngle =  waypoints[current].transform.position - transform.position;
         transform.forward = waypointAngle;
 
-        //resume movement
+        //resume movement, get down cooldown
         isGettingDown = false;
+        yield return new WaitForSeconds(5f);
+
+        //cooldown complete
+        isGetDownReady = true;
+
     }
 
     IEnumerator MovePresident()

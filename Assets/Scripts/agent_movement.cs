@@ -19,6 +19,7 @@ public class agent_movement : MonoBehaviour
     private Vector3 targetpos;
     public float jumpAmount = 5;
     public bool isGettingDown = false;
+    public bool isGetDownReady = true;
     
     // public bool EndScreenOn = false;
 
@@ -56,10 +57,9 @@ public class agent_movement : MonoBehaviour
             {
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
             }
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) && isGetDownReady)
             {
                 isGettingDown = true;
-                rb.constraints &= ~RigidbodyConstraints.FreezeRotationX;
                 StartCoroutine(GetDown());
             }
 
@@ -76,6 +76,7 @@ public class agent_movement : MonoBehaviour
 
     IEnumerator GetDown()
     {
+        isGetDownReady = false;
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
         
@@ -88,8 +89,12 @@ public class agent_movement : MonoBehaviour
         
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
 
-        //resume movement
+        //resume movement, get down cooldown
         isGettingDown = false;
+        yield return new WaitForSeconds(5f);
+
+        //cooldown complete
+        isGetDownReady = true;
     }
 
     void OnCollisionEnter(Collision collision)
