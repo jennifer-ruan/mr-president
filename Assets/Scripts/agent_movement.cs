@@ -11,13 +11,17 @@ public class agent_movement : MonoBehaviour
     float speed = 10.0f;
     public float speedmultiple;
     public float dragVar = 5f;
+    float rotationSpeed = 45;
 
     public AudioSource randomSound;
     public AudioClip[] audioSources;
     public GameObject target;
     public GameObject president;
     private Vector3 targetpos;
+    public Vector3 currentEulerAngles;
     public float jumpAmount = 5;
+    public bool isGettingDown = false;
+    
     // public bool EndScreenOn = false;
 
     // GameOverManager gameOverManager;
@@ -46,16 +50,23 @@ public class agent_movement : MonoBehaviour
         // }
 
         // else {
-            if (president){
+        if (president)
+        {
             targetpos = target.transform.position;
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
             }
-            moveAgent();
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                isGettingDown = true;
+                rb.constraints &= ~RigidbodyConstraints.FreezeRotationX;
+                StartCoroutine(GetDown());
             }
-            
+
+            StartCoroutine(moveAgent());
+        }
         // }
 
     }
@@ -63,6 +74,14 @@ public class agent_movement : MonoBehaviour
     void addJumpForce()
     {
         rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+    }
+
+    IEnumerator GetDown()
+    {
+        float angle = rotationSpeed * 10;
+        transform.rotation *= Quaternion.AngleAxis(angle, Vector3.right);
+        yield return new WaitForSeconds(2f);
+        isGettingDown = false;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -79,8 +98,12 @@ public class agent_movement : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void moveAgent()
+    IEnumerator moveAgent()
     {
+        while (isGettingDown)
+        {
+            yield return null;
+        }
         float distance = Vector3.Distance(transform.position, targetpos);
         speed = distance * distance * 8 * speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
@@ -91,7 +114,7 @@ public class agent_movement : MonoBehaviour
         rb.AddForce(targetpos - transform.position);
         // Debug.Log("force added");
 
-
+        Debug.Log("NONONONONN");
         transform.forward = angle;
     }
     public void Push(Vector3 dir)
