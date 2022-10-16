@@ -8,7 +8,6 @@ public class Waypoints : MonoBehaviour
     int current = 0;
     public float speed;
     float WPradius = 1;
-    float rotationSpeed = 45;
     public bool isGettingDown = false;
 
     Rigidbody rb;
@@ -23,7 +22,6 @@ public class Waypoints : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             isGettingDown = true;
-            rb.constraints &= ~RigidbodyConstraints.FreezeRotationX;
             StartCoroutine(GetDown());
         }
         
@@ -32,9 +30,19 @@ public class Waypoints : MonoBehaviour
 
     IEnumerator GetDown()
     {
-        float angle = rotationSpeed * 10;
-        transform.rotation *= Quaternion.AngleAxis(angle, Vector3.right);
+        //get down motion
+        transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
+
         yield return new WaitForSeconds(2f);
+       
+        //get up motion
+        transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
+
+        //face front
+        Vector3 waypointAngle =  waypoints[current].transform.position - transform.position;
+        transform.forward = waypointAngle;
+
+        //resume movement
         isGettingDown = false;
     }
 

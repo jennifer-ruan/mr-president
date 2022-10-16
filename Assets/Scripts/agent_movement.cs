@@ -11,14 +11,12 @@ public class agent_movement : MonoBehaviour
     float speed = 10.0f;
     public float speedmultiple;
     public float dragVar = 5f;
-    float rotationSpeed = 45;
 
     public AudioSource randomSound;
     public AudioClip[] audioSources;
     public GameObject target;
     public GameObject president;
     private Vector3 targetpos;
-    public Vector3 currentEulerAngles;
     public float jumpAmount = 5;
     public bool isGettingDown = false;
     
@@ -78,9 +76,19 @@ public class agent_movement : MonoBehaviour
 
     IEnumerator GetDown()
     {
-        float angle = rotationSpeed * 10;
-        transform.rotation *= Quaternion.AngleAxis(angle, Vector3.right);
+        //get down motion
+        transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
+        
+        //stay in place on the ground
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         yield return new WaitForSeconds(2f);
+        
+        //restore normal constraints
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        
+        transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
+
+        //resume movement
         isGettingDown = false;
     }
 
@@ -114,7 +122,6 @@ public class agent_movement : MonoBehaviour
         rb.AddForce(targetpos - transform.position);
         // Debug.Log("force added");
 
-        Debug.Log("NONONONONN");
         transform.forward = angle;
     }
     public void Push(Vector3 dir)
