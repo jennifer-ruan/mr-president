@@ -24,7 +24,7 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         if (target){
-            if (Input.GetKeyDown(KeyCode.G) && isGetDownReady)
+            if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
             {
                 isGettingDown = true;
                 StartCoroutine(GetDown());

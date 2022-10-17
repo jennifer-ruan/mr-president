@@ -57,7 +57,7 @@ public class agent_movement : MonoBehaviour
             {
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
             }
-            if (Input.GetKeyDown(KeyCode.G) && isGetDownReady)
+            if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
             {
                 isGettingDown = true;
                 StartCoroutine(GetDown());
