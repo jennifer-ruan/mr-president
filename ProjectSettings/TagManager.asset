@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Harmful
   - Invincible
+  - Agent
+  - Ground
   layers:
   - Default
   - TransparentFX
