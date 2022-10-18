@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1374451385735484131}
   m_Layer: 6
   m_Name: Agent 1
-  m_TagString: Untagged
+  m_TagString: Agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,6 @@ MonoBehaviour:
   horizontalinput: 0
   verticalinput: 0
   speedmultiple: 0
-  personalspace: 0
   dragVar: 5
   randomSound: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
   audioSources:
@@ -226,6 +225,8 @@ MonoBehaviour:
   target: {fileID: 6460820490428509372, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
   president: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
   jumpAmount: 5
+  isGettingDown: 0
+  isGetDownReady: 1
 --- !u!136 &-1374451385735484131
 CapsuleCollider:
   m_ObjectHideFlags: 0
