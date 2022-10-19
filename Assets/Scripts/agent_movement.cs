@@ -9,8 +9,8 @@ public class agent_movement : MonoBehaviour
     public float horizontalinput;
     public float verticalinput;
     float speed = 10.0f;
-    public float speedmultiple;
-    public float dragVar = 5f;
+    float speedmultiple;
+    float dragVar = 15f;
 
     public AudioSource randomSound;
     public AudioClip[] audioSources;
@@ -119,13 +119,17 @@ public class agent_movement : MonoBehaviour
             yield return null;
         }
         float distance = Vector3.Distance(transform.position, targetpos);
-        speed = distance * distance * 8 * speedmultiple;
+        speed = distance * 8 * speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
         Vector3 angle = transform.position - president.transform.position;
 
-        rb.drag = dragVar / distance;
-        rb.AddForce(targetpos - transform.position);
+        rb.drag = dragVar / (distance*distance);
+        Debug.Log(transform.position.y);
+        if (transform.position.y < 1.3f)
+        {
+            rb.AddForce(targetpos - transform.position);
+        }
         // Debug.Log("force added");
 
         transform.forward = angle;
