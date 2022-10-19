@@ -6,8 +6,8 @@ public class ExplosionScript : MonoBehaviour
 {
     List<Transform> chars = new List<Transform>();
     GameObject prez;
-    float lethalRad;
-    float knockRad;
+    public float lethalRad;
+    public float knockRad;
 
 
     // Start is called before the first frame update
