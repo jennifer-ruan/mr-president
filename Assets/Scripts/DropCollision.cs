@@ -126,9 +126,6 @@ public class DropCollision : MonoBehaviour
                 }
             }
         }
-
-        Destroy(circle);
-        Destroy(gameObject);
     }
 
     void DrawShadow(){
@@ -146,6 +143,13 @@ public class DropCollision : MonoBehaviour
             line.SetPosition (i,new Vector3(x,y,0) );
 
             angle += (360f / segments);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision){
+        if (collision.gameObject.tag == "Ground"){
+            Destroy(circle);
+            Destroy(gameObject);
         }
     }
 }
