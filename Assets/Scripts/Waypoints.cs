@@ -7,6 +7,8 @@ public class Waypoints : MonoBehaviour
     public GameObject[] waypoints;
     int current = 0;
     public float speed;
+    public float getDownActivationTime = 2f;
+    public float getDownCooldownTime = 3f;
     float WPradius = 1;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
@@ -25,7 +27,7 @@ public class Waypoints : MonoBehaviour
             isGettingDown = true;
             StartCoroutine(GetDown());
         }
-        
+
         StartCoroutine(MovePresident());
     }
 
@@ -35,18 +37,18 @@ public class Waypoints : MonoBehaviour
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
-        yield return new WaitForSeconds(2f);
-       
+        yield return new WaitForSeconds(getDownActivationTime);
+
         //get up motion
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
 
         //face front
-        Vector3 waypointAngle =  waypoints[current].transform.position - transform.position;
+        Vector3 waypointAngle = waypoints[current].transform.position - transform.position;
         transform.forward = waypointAngle;
 
         //resume movement, get down cooldown
         isGettingDown = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(getDownCooldownTime);
 
         //cooldown complete
         isGetDownReady = true;
@@ -65,7 +67,7 @@ public class Waypoints : MonoBehaviour
         }
         if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius)
         {
-            if (current < waypoints.Length-1)
+            if (current < waypoints.Length - 1)
             {
                 current++;
             }

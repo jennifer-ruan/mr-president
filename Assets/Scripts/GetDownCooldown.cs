@@ -10,7 +10,7 @@ public class GetDownCooldown : MonoBehaviour
     private Image imageCooldown;
     private bool isCoolingDown = false;
     //the value of 7 is derived from the 2 second activation window plus 5 second cooldown
-    private float coolDownLength = 7f;
+    private float coolDownLength = 5f;
     private float coolDownTimer = 0f;
 
     void Start()
