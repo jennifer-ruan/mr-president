@@ -13,6 +13,8 @@ public class Waypoints : MonoBehaviour
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
 
+    public AudioClip[] dyingSounds;
+
     Rigidbody rb;
 
     void Start()
@@ -91,6 +93,7 @@ public class Waypoints : MonoBehaviour
         {
             Debug.Log(gameObject.name);
             Debug.Log("president is hit");
+            // AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
             Destroy(gameObject);
         }
     }

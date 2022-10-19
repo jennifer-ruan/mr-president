@@ -39,7 +39,6 @@ public class DropCollision : MonoBehaviour
         chars.Add(prez.transform);
         // Debug.Log("added Prez");
 
-
         circle = new GameObject("Circle");
         circle.transform.position = new Vector3(transform.position.x,0,transform.position.z);
         circle.transform.rotation = Quaternion.Euler(new Vector3(90,0,0));

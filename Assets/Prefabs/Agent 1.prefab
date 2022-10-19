@@ -214,12 +214,23 @@ MonoBehaviour:
   horizontalinput: 0
   verticalinput: 0
   randomSound: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
-  audioSources:
+  dyingSounds:
   - {fileID: 8300000, guid: 7a2685b37d45dba4d82f05b3d9032015, type: 3}
   - {fileID: 8300000, guid: c272c9d546beab74e8fc32a8ccdd4fa5, type: 3}
   - {fileID: 8300000, guid: 01731623e07dab74e98c83fb99d7f7a0, type: 3}
   - {fileID: 8300000, guid: c52eb4278a286914581dfa4ed4b86cfb, type: 3}
   - {fileID: 8300000, guid: 15fc1995b6923e64d8bb7b0066e4bd39, type: 3}
+  smackSounds:
+  - {fileID: 8300000, guid: c3ac8feebf1d437448b049dee4f9ae17, type: 3}
+  - {fileID: 8300000, guid: 87af9d060a4e5884f9ea0936dcb91496, type: 3}
+  - {fileID: 8300000, guid: 943e237a86057e24cbc8f04531b91e1c, type: 3}
+  - {fileID: 8300000, guid: 81382d66403a3834ba56753371c5ae6b, type: 3}
+  - {fileID: 8300000, guid: a9ce08b68ada12145964a4d945978019, type: 3}
+  - {fileID: 8300000, guid: 448dbc937ca592c4cabde1b21c19fa42, type: 3}
+  getDownSounds:
+  - {fileID: 8300000, guid: f9ee9ed1c2e991d4fa4e0aac7cf8a7ef, type: 3}
+  - {fileID: 8300000, guid: 21e57299ed77c4449a8ee01ff91c77cc, type: 3}
+  - {fileID: 8300000, guid: 8cbf9cabffb67484c989c53e1f6130cb, type: 3}
   target: {fileID: 6460820490428509372, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
   president: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
   jumpAmount: 5

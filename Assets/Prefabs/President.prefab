@@ -335,6 +335,11 @@ MonoBehaviour:
   getDownCooldownTime: 3
   isGettingDown: 0
   isGetDownReady: 1
+  dyingSounds:
+  - {fileID: 8300000, guid: 9e91c489a14e80f4ea622536ef39043f, type: 3}
+  - {fileID: 8300000, guid: 0a1ea0de1b815aa49899b066a0212052, type: 3}
+  - {fileID: 8300000, guid: d6b7499425b9acc4f8620ce294cba70c, type: 3}
+  - {fileID: 8300000, guid: 71a03ce1e202a5d41a66e35ea06497b4, type: 3}
 --- !u!65 &-2752081459713978200
 BoxCollider:
   m_ObjectHideFlags: 0

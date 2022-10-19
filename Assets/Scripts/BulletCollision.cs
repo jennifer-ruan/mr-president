@@ -12,12 +12,22 @@ public class BulletCollision : MonoBehaviour
     GameObject line;
     LineRenderer lr;
 
+    public AudioSource randomSound;
+    public AudioClip[] audioSources;
+
+    float timer = 0;
+    bool timerReached = false;
+
     GameOverManager gameOverManager;
 
     void Start()
     {
         speed = Random.Range(30, 50) * 1f;
         target = GameObject.Find("President");
+
+        randomSound = gameObject.GetComponent<AudioSource>();
+        randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
+        randomSound.Play ();
 
         line = new GameObject("Line");
         line.transform.position = transform.position;
@@ -38,25 +48,34 @@ public class BulletCollision : MonoBehaviour
 
     void Update()
     {
-        if (target){
-            prevPosition = transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, targetVector(), Time.deltaTime * speed);
+        if (!timerReached){
+            timer += Time.deltaTime;
+        }
+        if (!timerReached && timer > 0.5)
+        {
+            timerReached = true;
+        }
+        if (timerReached){
+            if (target){
+                prevPosition = transform.position;
+                transform.position = Vector3.MoveTowards(transform.position, targetVector(), Time.deltaTime * speed);
 
-            //if president dodged then the projectile will be directly above his head and stay there until the next update.
-            //This is a temp solution, as there is an edge case where president gets down as early as possible,
-            //causing bullet to stop above his head just before he starts moving again, thus causing the bullet 
-            //to stick to his head until the next time he gets down since the states never matched between consecutive updates
-            if (prevPosition == transform.position)
-            {
+                //if president dodged then the projectile will be directly above his head and stay there until the next update.
+                //This is a temp solution, as there is an edge case where president gets down as early as possible,
+                //causing bullet to stop above his head just before he starts moving again, thus causing the bullet 
+                //to stick to his head until the next time he gets down since the states never matched between consecutive updates
+                if (prevPosition == transform.position)
+                {
+                    Destroy(line);
+                    Destroy(gameObject);
+                }
+                lr.SetPosition(1, targetVector());
+            }
+            else {
+                Debug.Log("NO TARGET");
                 Destroy(line);
                 Destroy(gameObject);
             }
-            lr.SetPosition(1, targetVector());
-        }
-        else {
-            Debug.Log("NO TARGET");
-            Destroy(line);
-            Destroy(gameObject);
         }
     }
 

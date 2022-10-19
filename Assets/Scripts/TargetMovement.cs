@@ -12,6 +12,9 @@ public class TargetMovement : MonoBehaviour
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
 
+    public AudioSource randomSound;
+    public AudioClip[] getDownSounds;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +27,15 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         if (target){
-            // if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
-            // {
+            if (((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))) && isGetDownReady)
+            {
+                randomSound = gameObject.GetComponent<AudioSource>();
+                randomSound.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
+                randomSound.time = 1f;
+                randomSound.Play ();
             //     isGettingDown = true;
             //     StartCoroutine(GetDown());
-            // }
+            }
             StartCoroutine(moveTarget());
         }
     }

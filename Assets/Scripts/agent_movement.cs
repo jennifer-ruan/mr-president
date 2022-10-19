@@ -13,7 +13,8 @@ public class agent_movement : MonoBehaviour
     float dragVar = 15f;
 
     public AudioSource randomSound;
-    public AudioClip[] audioSources;
+    public AudioClip[] dyingSounds;
+    public AudioClip[] smackSounds;
     public GameObject target;
     public GameObject president;
     private Vector3 targetpos;
@@ -82,6 +83,8 @@ public class agent_movement : MonoBehaviour
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
+         AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
+
         //stay in place on the ground
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationZ;
         yield return new WaitForSeconds(getDownActivationTime);
@@ -105,8 +108,8 @@ public class agent_movement : MonoBehaviour
         if (collision.gameObject != null && collision.gameObject.tag == "Harmful")
         {
 
-            // randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
-            AudioSource.PlayClipAtPoint(audioSources[Random.Range(0, audioSources.Length)], transform.position);
+            // randomSound.clip = dyingSounds[Random.Range(0, dyingSounds.Length)];
+            AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
             // randomSound.Play ();
 
             Debug.Log(gameObject.name);
