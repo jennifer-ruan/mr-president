@@ -6,20 +6,25 @@ public class GameOverManager : MonoBehaviour
 {
 
     GameObject gameOverScreen;
+    GameObject getDownCoolDown;
     bool gameHasEnded = false;
 
-    void Start() {
+    void Start()
+    {
         gameOverScreen = GameObject.Find("Game Over Screen");
+        getDownCoolDown = GameObject.Find("Get down cooldown");
         gameHasEnded = false;
         gameOverScreen.SetActive(false);
     }
 
     public void SetGameOver()
     {
-        if (gameHasEnded == false){
+        if (gameHasEnded == false)
+        {
             gameHasEnded = true;
-            Debug.Log("Set Game Over function is called"); 
+            Debug.Log("Set Game Over function is called");
             gameOverScreen.SetActive(true);
+            getDownCoolDown.SetActive(false);
         }
     }
 

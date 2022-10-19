@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 public class VictoryManager : MonoBehaviour
 {
     GameObject gameWinScreen;
+    GameObject getDownCoolDown;
     bool gameHasWon = false;
 
     void Start()
     {
         gameWinScreen = GameObject.Find("Victory Screen");
+        getDownCoolDown = GameObject.Find("Get down cooldown");
         gameHasWon = false;
         gameWinScreen.SetActive(false);
     }
@@ -20,6 +22,7 @@ public class VictoryManager : MonoBehaviour
         {
             gameHasWon = true;
             Debug.Log("Set Game Over function is called");
+            getDownCoolDown.SetActive(false);
             gameWinScreen.SetActive(true);
         }
     }
