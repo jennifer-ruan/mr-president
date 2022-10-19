@@ -127,7 +127,7 @@ public class agent_movement : MonoBehaviour
         Vector3 angle = transform.position - president.transform.position;
 
         rb.drag = dragVar / (distance * distance);
-        Debug.Log(transform.position.y);
+        // Debug.Log(transform.position.y);
         if (transform.position.y < 1.3f)
         {
             rb.AddForce(targetpos - transform.position);

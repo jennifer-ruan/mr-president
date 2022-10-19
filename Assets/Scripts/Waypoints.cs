@@ -61,7 +61,7 @@ public class Waypoints : MonoBehaviour
         {
             yield return null;
         }
-        if (Vector3.Distance(transform.position, waypoints[current].transform.position) < 1.5f)
+        if (Vector3.Distance(transform.position, waypoints[waypoints.Length-1].transform.position) < 1.5f)
         {
             FindObjectOfType<VictoryManager>().SetGameWin();
         }
