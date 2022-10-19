@@ -215,8 +215,9 @@ MonoBehaviour:
   target: {fileID: 0}
   randomSound: {fileID: 0}
   audioSources:
-  - {fileID: 8300000, guid: 33101166a81d32e40b65d58c925710f2, type: 3}
-  - {fileID: 8300000, guid: 0306d7e7febecbf4a87b714e61ecc77d, type: 3}
+  - {fileID: 8300000, guid: 91cc9932ca83b7a40885f70ce036c13f, type: 3}
+  - {fileID: 8300000, guid: fb459ddff9287574296427da71f85e19, type: 3}
+  - {fileID: 8300000, guid: bf887977be60ab6488f63db46c7e069b, type: 3}
 --- !u!82 &8159818808018485341
 AudioSource:
   m_ObjectHideFlags: 0
