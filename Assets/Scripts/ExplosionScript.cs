@@ -6,6 +6,8 @@ public class ExplosionScript : MonoBehaviour
 {
     List<Transform> chars = new List<Transform>();
     GameObject prez;
+    GameObject smallr;
+    GameObject bigr;
     public float lethalRad;
     public float knockRad;
 
@@ -25,6 +27,12 @@ public class ExplosionScript : MonoBehaviour
         }
         chars.Add(prez.transform);
         // Debug.Log("added Prez");
+
+        smallr = GameObject.Find("smallrad");
+        bigr = GameObject.Find("bigrad");
+
+        smallr.transform.localScale = new Vector3(lethalRad, 0.001f, lethalRad);
+        bigr.transform.localScale = new Vector3(knockRad, 0.001f, knockRad);
     }
 
     // Update is called once per frame
@@ -83,7 +91,7 @@ public class ExplosionScript : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 10, ForceMode.Impulse);
+                        c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 5f, ForceMode.Impulse);
                     }
                 }
             }

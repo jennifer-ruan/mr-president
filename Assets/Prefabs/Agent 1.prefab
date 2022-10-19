@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalinput: 0
   verticalinput: 0
-  speedmultiple: 0
+  speedmultiple: 20000
   dragVar: 5
   randomSound: {fileID: 1598005288113262312, guid: befd6d3bf0e5e6c4789ac0a4f950f4b2, type: 3}
   audioSources:
