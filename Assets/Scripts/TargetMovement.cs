@@ -24,27 +24,27 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         if (target){
-            if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
-            {
-                isGettingDown = true;
-                StartCoroutine(GetDown());
-            }
+            // if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
+            // {
+            //     isGettingDown = true;
+            //     StartCoroutine(GetDown());
+            // }
             StartCoroutine(moveTarget());
         }
     }
 
-    IEnumerator GetDown()
-    {
-        isGetDownReady = false;
-        yield return new WaitForSeconds(2f);
+    // IEnumerator GetDown()
+    // {
+    //     isGetDownReady = false;
+    //     yield return new WaitForSeconds(2f);
 
-        //resume movement, get down cooldown
-        isGettingDown = false;
-        yield return new WaitForSeconds(5f);
+    //     //resume movement, get down cooldown
+    //     isGettingDown = false;
+    //     yield return new WaitForSeconds(5f);
 
-        //cooldown complete
-        isGetDownReady = true;
-    }
+    //     //cooldown complete
+    //     isGetDownReady = true;
+    // }
 
     IEnumerator moveTarget()
     {
