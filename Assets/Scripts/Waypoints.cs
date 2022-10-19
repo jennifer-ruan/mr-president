@@ -80,6 +80,8 @@ public class Waypoints : MonoBehaviour
                 waypoints[current - 1].transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+        Vector3 angle = waypoints[current].transform.position - transform.position;
+        //transform.forward = angle;
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
     }
 
