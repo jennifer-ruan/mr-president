@@ -18,9 +18,11 @@ public class agent_movement : MonoBehaviour
     public GameObject president;
     private Vector3 targetpos;
     public float jumpAmount = 5;
+    public float getDownActivationTime = 2f;
+    public float getDownCooldownTime = 3f;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
-    
+
     // public bool EndScreenOn = false;
 
     // GameOverManager gameOverManager;
@@ -79,20 +81,20 @@ public class agent_movement : MonoBehaviour
         isGetDownReady = false;
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
-        
+
         //stay in place on the ground
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationZ;
-        yield return new WaitForSeconds(2f);
-        
+        yield return new WaitForSeconds(getDownActivationTime);
+
         //restore normal constraints
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        
+
         //get up motion
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
 
         //resume movement, get down cooldown
         isGettingDown = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(getDownCooldownTime);
 
         //cooldown complete
         isGetDownReady = true;
@@ -124,7 +126,7 @@ public class agent_movement : MonoBehaviour
 
         Vector3 angle = transform.position - president.transform.position;
 
-        rb.drag = dragVar / (distance*distance);
+        rb.drag = dragVar / (distance * distance);
         Debug.Log(transform.position.y);
         if (transform.position.y < 1.3f)
         {
