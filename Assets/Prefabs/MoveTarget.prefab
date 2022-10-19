@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6460820490428509370}
   - component: {fileID: 6460820490428509371}
   - component: {fileID: 6460820490428509367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MoveTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6460820490428509372}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -116,6 +116,8 @@ MonoBehaviour:
   verticalinput: 0
   maincamera: {fileID: 0}
   target: {fileID: 0}
+  isGettingDown: 0
+  isGetDownReady: 1
 --- !u!1001 &6460820489450476958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +172,14 @@ PrefabInstance:
     - target: {fileID: 5446443771997690553, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
       propertyPath: m_Name
       value: rotator
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443771997690553, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5446443773538584947, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5446443773538584948, guid: 9b697b93dc8142a4c93a7d6d94713076, type: 3}
       propertyPath: m_LocalPosition.x
