@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -164,11 +164,11 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -391,12 +391,12 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 1099625353}
   m_Follow: {fileID: 1099625353}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -464,7 +464,7 @@ MonoBehaviour:
     m_RecenteringTime: 2
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
-  m_BindingMode: 5
+  m_BindingMode: 2
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 5
@@ -687,6 +687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7eafbfe6dd5575488a35b42c7cabb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lethalRad: 0
+  knockRad: 0
 --- !u!4 &301792386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 190989081802990487, guid: cec386f15cb57384baae940afa3ae4e3, type: 3}
@@ -1127,7 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 5
+  m_BindingMode: 2
   m_FollowOffset: {x: 0, y: 1.2, z: -4}
   m_XDamping: 1
   m_YDamping: 1
@@ -1668,7 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 5
+  m_BindingMode: 2
   m_FollowOffset: {x: 0, y: 1.2, z: -4}
   m_XDamping: 1
   m_YDamping: 1
@@ -1768,11 +1770,11 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1796,7 +1798,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976635952}
-  m_LocalRotation: {x: 0.08631289, y: -3.3145987e-18, z: -2.1150102e-17, w: 0.9962681}
+  m_LocalRotation: {x: 0.116626866, y: 0.0000000176149, z: -0.0000000020684865, w: 0.9931758}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1861,11 +1863,11 @@ MonoBehaviour:
   m_LockStageInInspector: 00000000
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 100
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1889,7 +1891,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140747078}
-  m_LocalRotation: {x: 0.02873193, y: -6.5883987e-10, z: 1.8937548e-11, w: 0.9995872}
+  m_LocalRotation: {x: 0.08813344, y: -0.0000000042848565, z: 3.7911446e-10, w: 0.9961087}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2523,7 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 5
+  m_BindingMode: 2
   m_FollowOffset: {x: 0, y: 1.2, z: -4}
   m_XDamping: 1
   m_YDamping: 1
@@ -2853,19 +2855,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752170, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9962681
+      value: 0.9931758
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752170, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08631289
+      value: 0.116626866
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752170, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000074227766
+      value: 0.000000035229796
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752170, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 6.430812e-10
+      value: -0.0000000041369725
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752170, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2881,7 +2883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752171, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: field of view
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1314160214003752171, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
       propertyPath: far clip plane
