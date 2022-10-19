@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8878311448276236477}
   - component: {fileID: 5794577463718737561}
   - component: {fileID: 5266743386278217000}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PM3D_Cylinder3D1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5252292167114739020}
   - component: {fileID: 4303484438773228229}
   - component: {fileID: 4554151235369996920}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: CHAR_GETDOWN_President_V03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2465359688119053422}
   - component: {fileID: 2465359688119053421}
   - component: {fileID: -2752081459713978200}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: President
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,6 +331,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 2
+  getDownActivationTime: 2
+  getDownCooldownTime: 3
+  isGettingDown: 0
+  isGetDownReady: 1
 --- !u!65 &-2752081459713978200
 BoxCollider:
   m_ObjectHideFlags: 0
