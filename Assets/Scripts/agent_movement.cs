@@ -124,7 +124,7 @@ public class agent_movement : MonoBehaviour
             yield return null;
         }
         float distance = Vector3.Distance(transform.position, targetpos);
-        speed = distance * 8 * speedmultiple;
+        speed = distance * distance * 8 * speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
         Vector3 angle = transform.position - president.transform.position;
@@ -137,7 +137,7 @@ public class agent_movement : MonoBehaviour
         }
         // Debug.Log("force added");
 
-        transform.forward = angle;
+        //transform.forward = angle;
     }
     public void Push(Vector3 dir)
     {

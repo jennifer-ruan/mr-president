@@ -6,14 +6,25 @@ public class VictoryManager : MonoBehaviour
 {
     GameObject gameWinScreen;
     GameObject getDownCoolDown;
-    bool gameHasWon = false;
+    GameObject target;
+    public bool gameHasWon = false;
 
     void Start()
     {
         gameWinScreen = GameObject.Find("Victory Screen");
         getDownCoolDown = GameObject.Find("Get down cooldown");
         gameHasWon = false;
+        target = GameObject.Find("President");
         gameWinScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Update()
+    {
+        if (!(target) || gameHasWon)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void SetGameWin()
