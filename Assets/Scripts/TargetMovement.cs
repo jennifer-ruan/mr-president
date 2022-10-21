@@ -21,11 +21,16 @@ public class TargetMovement : MonoBehaviour
     {
         target = GameObject.Find("President");
         maincamera = GameObject.Find("Main Camera").transform;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!(target))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         if (target){
             if (((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))) && isGetDownReady)
             {
