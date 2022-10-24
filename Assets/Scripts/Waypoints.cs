@@ -29,8 +29,10 @@ public class Waypoints : MonoBehaviour
             isGettingDown = true;
             StartCoroutine(GetDown());
         }
-
-        StartCoroutine(MovePresident());
+        if (!isGettingDown)
+        {
+            MovePresident();
+        }
     }
 
     IEnumerator GetDown()
@@ -57,13 +59,9 @@ public class Waypoints : MonoBehaviour
 
     }
 
-    IEnumerator MovePresident()
+    void MovePresident()
     {
-        while (isGettingDown)
-        {
-            yield return null;
-        }
-        if (Vector3.Distance(transform.position, waypoints[waypoints.Length-1].transform.position) < 1.5f)
+        if (Vector3.Distance(transform.position, waypoints[waypoints.Length - 1].transform.position) < 1.5f)
         {
             FindObjectOfType<VictoryManager>().SetGameWin();
         }
