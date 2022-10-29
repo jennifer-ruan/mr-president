@@ -21,8 +21,20 @@ public class rotator : MonoBehaviour
         if (target){
         turn.x += Input.GetAxis("Mouse X");
         //turn.y += Input.GetAxis("Mouse Y");
-
+        AvoidCrossWall();
         transform.localRotation = Quaternion.Euler(0, turn.x, 0);
+        }
+    }
+
+    private void AvoidCrossWall()
+    {
+        RaycastHit hitInfo;
+        Vector3 fwd = Camera.main.transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(Camera.main.transform.position, fwd, out hitInfo, 0.5f))
+        {
+            float dis = hitInfo.distance;
+            Vector3 correction = Vector3.Normalize(Camera.main.transform.TransformDirection(Vector3.back)) * dis;
+            Camera.main.transform.position += correction;
         }
     }
 }

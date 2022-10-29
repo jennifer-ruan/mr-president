@@ -60,11 +60,15 @@ public class TargetMovement : MonoBehaviour
         {
             yield return null;
         }
+
+        // target movements
         horizontalinput = Input.GetAxis("Horizontal");
         verticalinput = Input.GetAxis("Vertical");
+
         var right = maincamera.right;
         var forward = maincamera.forward;
 
+        // moving diagonally
         if (horizontalinput != 0 && verticalinput != 0)
         {
             horizontalinput = horizontalinput * 0.6f;
@@ -76,6 +80,7 @@ public class TargetMovement : MonoBehaviour
         right.Normalize();
         forward.Normalize();
 
+        // target movements
         transform.Translate(right * horizontalinput * Time.deltaTime * speed);
         transform.Translate(forward * verticalinput * Time.deltaTime * speed);
     }
