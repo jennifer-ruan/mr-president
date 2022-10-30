@@ -8,6 +8,8 @@ public class GetDownCooldown : MonoBehaviour
 {
     [SerializeField]
     private Image imageCooldown;
+    [SerializeField]
+    private TMP_Text countdown;
     private bool isCoolingDown = false;
     //the value of 7 is derived from the 2 second activation window plus 5 second cooldown
     private float coolDownLength = 5f;
@@ -38,11 +40,12 @@ public class GetDownCooldown : MonoBehaviour
         if (coolDownTimer <= 0)
         {
             isCoolingDown = false;
+            countdown.text = "G";
             imageCooldown.fillAmount = 0f;
         }
         else
         {
-            Debug.Log(coolDownTimer / coolDownLength);
+            countdown.text = Mathf.RoundToInt(coolDownTimer).ToString();
             imageCooldown.fillAmount = coolDownTimer / coolDownLength;
         }
     }
