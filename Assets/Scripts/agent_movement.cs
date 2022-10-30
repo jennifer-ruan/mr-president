@@ -86,7 +86,7 @@ public class agent_movement : MonoBehaviour
          AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
 
         //stay in place on the ground
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         yield return new WaitForSeconds(getDownActivationTime);
 
         //restore normal constraints
@@ -105,7 +105,7 @@ public class agent_movement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject != null && collision.gameObject.tag == "Harmful")
+        if (collision.gameObject != null && collision.gameObject.tag == "Harmful" && !isGettingDown)
         {
 
             // randomSound.clip = dyingSounds[Random.Range(0, dyingSounds.Length)];
