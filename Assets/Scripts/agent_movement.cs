@@ -17,6 +17,7 @@ public class agent_movement : MonoBehaviour
     public AudioClip[] smackSounds;
     public GameObject target;
     public GameObject president;
+    private List<int> shooters = new List<int>();
     private Vector3 targetpos;
     public float jumpAmount = 5;
     public float getDownActivationTime = 2f;
@@ -103,20 +104,12 @@ public class agent_movement : MonoBehaviour
         isGetDownReady = true;
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void Unalive()
     {
-        if (collision.gameObject != null && collision.gameObject.tag == "Harmful" && !isGettingDown)
-        {
-
-            // randomSound.clip = dyingSounds[Random.Range(0, dyingSounds.Length)];
-            AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
-            // randomSound.Play ();
-
-            Debug.Log(gameObject.name);
-            Debug.Log("agent is hit");
-            Destroy(gameObject);
-        }
+        AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
+        Destroy(gameObject);
     }
+
     IEnumerator moveAgent()
     {
         while (isGettingDown)

@@ -36,7 +36,6 @@ public class TargetMovement : MonoBehaviour
                 {
                     randomSound = gameObject.GetComponent<AudioSource>();
                     randomSound.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
-                    randomSound.time = 1f;
                     randomSound.Play ();
                 //     isGettingDown = true;
                 //     StartCoroutine(GetDown());
