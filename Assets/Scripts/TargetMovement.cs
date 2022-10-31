@@ -45,8 +45,7 @@ public class TargetMovement : MonoBehaviour
             }
 
             // pause pressed
-            if (Input.GetKeyDown(KeyCode.JoystickButton9))
-            {
+            if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
             // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
             // Debug.Log("2 pause pressed");
@@ -54,7 +53,7 @@ public class TargetMovement : MonoBehaviour
             // Debug.Log("3 pause pressed");
             pause = true;
 
-            }
+        }
             
         }
     }
@@ -101,5 +100,10 @@ public class TargetMovement : MonoBehaviour
         // target movements
         transform.Translate(right * horizontalinput * Time.deltaTime * speed);
         transform.Translate(forward * verticalinput * Time.deltaTime * speed);
+    }
+
+    public void resume()
+    {
+        pause = false;
     }
 }

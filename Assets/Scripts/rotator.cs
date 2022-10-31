@@ -20,7 +20,7 @@ public class rotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (Input.GetKeyDown(KeyCode.JoystickButton9)){
+        if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
             // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
             // Debug.Log("2 pause pressed");
@@ -73,5 +73,10 @@ public class rotator : MonoBehaviour
             Vector3 correction = Vector3.Normalize(Camera.main.transform.TransformDirection(Vector3.back)) * dis;
             Camera.main.transform.position += correction;
         }
+    }
+
+    public void resume()
+    {
+        pause = false;
     }
 }

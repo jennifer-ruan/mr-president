@@ -27,17 +27,16 @@ public class Waypoints : MonoBehaviour
     void Update()
     {
         // pause is pressed 
-        if (Input.GetKeyDown(KeyCode.JoystickButton9)){
-            Debug.Log("1 pause pressed");
+        if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+            // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
-            Debug.Log("2 pause pressed");
+            // Debug.Log("2 pause pressed");
             FindObjectOfType<PauseMenu>().PauseGame();
-            Debug.Log("3 pause pressed");
+            // Debug.Log("3 pause pressed");
             pause = true;
 
         }
-
-        if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
+        if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady && !pause)
         {
             isGettingDown = true;
             StartCoroutine(GetDown());
@@ -107,5 +106,10 @@ public class Waypoints : MonoBehaviour
             // AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
             Destroy(gameObject);
         }
+    }
+
+    public void resume()
+    {
+        pause = false;
     }
 }
