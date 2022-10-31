@@ -104,10 +104,14 @@ public class DropCollision : MonoBehaviour
                 // float dist = Vector3.Distance(transform.position, c.position);
                 if (horizontal_dist < lethalRad)
                 {
-                    Destroy(c.gameObject);
                     if (c.gameObject.name == "President")
                     {
+                        Destroy(c.gameObject);
                         FindObjectOfType<GameOverManager>().SetGameOver();
+                    }
+                    else
+                    {
+                        c.gameObject.GetComponent<agent_movement>().Unalive();
                     }
                 }
                 else if (horizontal_dist < knockRad)

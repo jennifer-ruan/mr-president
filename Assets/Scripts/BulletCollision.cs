@@ -18,12 +18,21 @@ public class BulletCollision : MonoBehaviour
     float timer = 0;
     bool timerReached = false;
 
+    List<Transform> chars = new List<Transform>();
+
     GameOverManager gameOverManager;
 
     void Start()
     {
         speed = Random.Range(30, 50) * 1f;
         target = GameObject.Find("President");
+
+        var agents = GameObject.Find("Agents").transform;
+        foreach(Transform child in agents)
+        {
+            chars.Add(child);
+            // Debug.Log("added agent");
+        }
 
         randomSound = gameObject.GetComponent<AudioSource>();
         randomSound.clip = audioSources[Random.Range(0, audioSources.Length)];
@@ -95,6 +104,20 @@ public class BulletCollision : MonoBehaviour
         }
         else{
             Destroy(gameObject);
+            float closestDistance = 1000;
+            GameObject closestAgent = null;
+            foreach(Transform c in chars)
+            {
+                if (c != null)
+                {
+                    float dist = Vector3.Distance(c.position, transform.position);
+                    if (dist < closestDistance){
+                        closestDistance = dist;
+                        closestAgent = c.gameObject;
+                    }
+                }
+            }
+            closestAgent.GetComponent<agent_movement>().Unalive();
         }
     }
 }
