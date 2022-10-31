@@ -8,6 +8,8 @@ public class rotator : MonoBehaviour
     public Vector2 turn;
     public GameObject target;
 
+    public bool pause = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +19,18 @@ public class rotator : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (target){
+    {   
+        if (Input.GetKeyDown(KeyCode.JoystickButton9)){
+            // Debug.Log("1 pause pressed");
+            FindObjectOfType<PauseManager>().SetGamePause();
+            // Debug.Log("2 pause pressed");
+            FindObjectOfType<PauseMenu>().PauseGame();
+            // Debug.Log("3 pause pressed");
+            pause = true;
+
+        }
+
+        if (target && !pause){
         turn.x += Input.GetAxis("Mouse X");
         //turn.y += Input.GetAxis("Mouse Y");
         // AvoidCrossWall();
@@ -28,6 +40,11 @@ public class rotator : MonoBehaviour
         detect(Vector3.right, Vector3.left);
         // rotate around y axis
         transform.localRotation = Quaternion.Euler(0, turn.x, 0);
+        }
+
+        if (pause){
+            // Debug.Log("camera is locked");
+            turn.x += 0f;
         }
     }
     
