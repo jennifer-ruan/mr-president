@@ -7,7 +7,7 @@ public class VictoryManager : MonoBehaviour
     GameObject gameWinScreen;
     GameObject getDownCoolDown;
     GameObject target;
-    public bool gameHasWon = false;
+    bool gameHasWon = false;
 
     void Start()
     {
@@ -48,5 +48,12 @@ public class VictoryManager : MonoBehaviour
     {
         Debug.Log("return to menu");
         SceneManager.LoadScene("NewMenu");
+    }
+
+    public void StartNextLevel()
+    {
+        string currscene = SceneManager.GetActiveScene().name;
+        string nextscene = currscene.Substring(0,6) + (int.Parse(currscene.Substring(6)) +1);
+        SceneManager.LoadScene(nextscene);
     }
 }
