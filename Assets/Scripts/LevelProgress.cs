@@ -10,22 +10,35 @@ public class LevelProgress : MonoBehaviour
     private Image stripe3;
     [SerializeField]
     private GameObject president;
-    [SerializeField]
-    private GameObject finalWaypoint;
     private float totalDistance;
+    private float distanceTravelled;
+    private Transform currWaypoint;
+    private Transform prevWaypoint;
+    private Vector3 prevPosition;
 
     void Start()
     {
-        totalDistance = Vector3.Distance(finalWaypoint.transform.position, president.transform.position);
-        stripe1.fillAmount = 0f;
-        stripe2.fillAmount = 0f;
-        stripe3.fillAmount = 0f;
+        var waypoints = GameObject.Find("waypoints").transform;
+        currWaypoint = prevWaypoint = president.transform;
+        //ignore y position so get-down doesn't count as level progress
+        prevPosition = new Vector3(president.transform.position.x, 0, president.transform.position.z);
+        totalDistance = distanceTravelled = 0;
+        foreach (Transform child in waypoints)
+        {
+            currWaypoint = child;
+            totalDistance += Vector3.Distance(currWaypoint.position, prevWaypoint.position);
+            prevWaypoint = currWaypoint;
+        }
+        stripe1.fillAmount = stripe2.fillAmount = stripe3.fillAmount = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float ratioCompleteness = 1 - (Vector3.Distance(finalWaypoint.transform.position, president.transform.position) / totalDistance);
-        stripe1.fillAmount = stripe2.fillAmount = stripe3.fillAmount = ratioCompleteness;
+        //ignore y position so get-down doesn't count as level progress
+        Vector3 currPosition = new Vector3(president.transform.position.x, 0, president.transform.position.z);
+        distanceTravelled += Vector3.Distance(currPosition, prevPosition);
+        prevPosition = currPosition;
+        stripe1.fillAmount = stripe2.fillAmount = stripe3.fillAmount = distanceTravelled / totalDistance;
     }
 }
