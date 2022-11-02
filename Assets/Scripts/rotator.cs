@@ -92,6 +92,7 @@ public class rotator : MonoBehaviour
         Vector3 _dir = Camera.main.transform.TransformDirection(dir);
         if (Physics.Raycast(Camera.main.transform.position, _dir, out hitInfo, 0.5f))
         {
+            
             float dis = hitInfo.distance;
             Vector3 correction = Vector3.Normalize(Camera.main.transform.TransformDirection(inverse_dir)) * dis;
             Camera.main.transform.position += correction;
@@ -105,11 +106,16 @@ public class rotator : MonoBehaviour
         Vector3 _dir = Camera.main.transform.TransformDirection(dir);
         if (Physics.SphereCast(Camera.main.transform.position, 0.5f, _dir, out hitInfo, 0.5f))
         {
-            float dis = hitInfo.distance;
-            Vector3 correction = Vector3.Normalize(Camera.main.transform.TransformDirection(inverse_dir)) * dis;
-            // correction.z = 0f;
-            // correction.y = 0f;
-            Camera.main.transform.position += correction;
+            Debug.Log(hitInfo.collider);
+            Debug.Log("hi");
+            if(!(hitInfo.collider.ToString().Contains("PersonalSpace") || hitInfo.collider.ToString().Contains("Column")))
+            {
+                float dis = hitInfo.distance;
+                Vector3 correction = Vector3.Normalize(Camera.main.transform.TransformDirection(inverse_dir)) * dis;
+                // correction.z = 0f;
+                // correction.y = 0f;
+                Camera.main.transform.position += correction;
+            }
         }
     }
  
