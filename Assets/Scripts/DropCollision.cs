@@ -9,6 +9,9 @@ public class DropCollision : MonoBehaviour
     float lethalRad;
     float knockRad;
 
+    public AudioSource audio;
+    public AudioClip[] clangSounds;
+
     Transform dieCircle;
     Transform triggerCircle;
 
@@ -104,6 +107,7 @@ public class DropCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == "Ground"){
+            AudioSource.PlayClipAtPoint(clangSounds[Random.Range(0, clangSounds.Length)], transform.position);
             Destroy(triggerCircle.gameObject);
             Destroy(dieCircle.gameObject);
             Destroy(gameObject);

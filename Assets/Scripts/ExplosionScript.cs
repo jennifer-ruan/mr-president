@@ -10,6 +10,8 @@ public class ExplosionScript : MonoBehaviour
     Transform bigr;
     public float lethalRad;
     public float knockRad;
+    public AudioSource audio;
+    public AudioClip explosionSound;
 
 
     // Start is called before the first frame update
@@ -66,6 +68,7 @@ public class ExplosionScript : MonoBehaviour
     void Explode()
     {
         Debug.Log("BOOM!!!");
+        AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         foreach (Transform c in chars)
         {
             if (c != null)
