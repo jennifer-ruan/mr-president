@@ -21,7 +21,7 @@ public class BulletCollision : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(30, 50) * 1f;
+        speed = Random.Range(10, 15) * 1f;
         target = GameObject.Find("President");
 
         var agents = GameObject.Find("Agents").transform;
@@ -87,10 +87,9 @@ public class BulletCollision : MonoBehaviour
         Debug.Log("DESTROYED" + collision.gameObject.name);
         if (collision.gameObject.name == "President"){
             Debug.Log("game over");
-            Destroy(gameObject);
-            FindObjectOfType<GameOverManager>().SetGameOver();
+            collision.gameObject.GetComponent<Waypoints>().Unalive();
         }
-        else{
+        else if (collision.gameObject.tag == "Agent"){
             Destroy(gameObject);
             float closestDistance = 1000;
             GameObject closestAgent = null;

@@ -201,9 +201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullets:
-  - {fileID: 9183915036431399422, guid: 3a600185aad50c24fa0c92109dc59f6b, type: 3}
-  - {fileID: 3217925364349220772, guid: 68e017a9335428c49ad4d7097ae4c275, type: 3}
   - {fileID: 7039130867574925205, guid: a0ddecbf9ccd29b428df9fd05a4d0800, type: 3}
+  - {fileID: 3217925364349220772, guid: 68e017a9335428c49ad4d7097ae4c275, type: 3}
+  - {fileID: 9183915036431399422, guid: 3a600185aad50c24fa0c92109dc59f6b, type: 3}
   shooter: {fileID: 8159818807676580612}
   speed: 0
   target: {fileID: 0}

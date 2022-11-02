@@ -14,7 +14,9 @@ public class Waypoints : MonoBehaviour
     public bool isGetDownReady = true;
     public bool pause = false;
 
+    public AudioSource audio;
     public AudioClip[] dyingSounds;
+    public AudioClip[] getDownSounds;
 
     Rigidbody rb;
 
@@ -22,6 +24,7 @@ public class Waypoints : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -39,6 +42,8 @@ public class Waypoints : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady && !pause)
         {
             isGettingDown = true;
+            audio.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
+            audio.Play ();
             StartCoroutine(GetDown());
         }
         if (!isGettingDown && !pause)
@@ -103,13 +108,18 @@ public class Waypoints : MonoBehaviour
         {
             Debug.Log(gameObject.name);
             Debug.Log("president is hit");
-            AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
-            Destroy(gameObject);
+            Unalive();
         }
     }
 
     public void resume()
     {
         pause = false;
+    }
+
+    public void Unalive(){
+        AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
+        Destroy(gameObject);
+        FindObjectOfType<GameOverManager>().SetGameOver();
     }
 }

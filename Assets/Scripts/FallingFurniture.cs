@@ -26,7 +26,7 @@ public class FallingFurniture : MonoBehaviour
             fallen = true;
             audio.Play();
             
-            Invoke ("Drop", 0.5f);
+            Invoke ("Drop", 0.2f);
 
             // //Add velocity to the bullet with a rigidbody
             // newBullet.GetComponent<Rigidbody>().velocity = speed * transform.forward;

@@ -32,14 +32,6 @@ public class TargetMovement : MonoBehaviour
         {   
             if (!pause)
             {
-                if (((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))) && isGetDownReady)
-                {
-                    randomSound = gameObject.GetComponent<AudioSource>();
-                    randomSound.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
-                    randomSound.Play ();
-                //     isGettingDown = true;
-                //     StartCoroutine(GetDown());
-                }
                 StartCoroutine(moveTarget());
             }
 

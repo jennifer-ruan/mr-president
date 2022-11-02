@@ -16,7 +16,6 @@ public class ShootBullets : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(30, 50) * 1f;
         target = GameObject.Find("President");
     }
 
@@ -27,7 +26,7 @@ public class ShootBullets : MonoBehaviour
 
             AudioSource.PlayClipAtPoint(shootingSounds[Random.Range(0, shootingSounds.Length)], transform.position);
             
-            Invoke("Shoot", 0.5f);
+            Invoke("Shoot", 0.1f);
         }
     }
 

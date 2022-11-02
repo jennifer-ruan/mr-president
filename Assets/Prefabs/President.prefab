@@ -336,11 +336,16 @@ MonoBehaviour:
   isGettingDown: 0
   isGetDownReady: 1
   pause: 0
+  audio: {fileID: 0}
   dyingSounds:
   - {fileID: 8300000, guid: 86d9c6cba18f9b0488c03ad5e1813012, type: 3}
   - {fileID: 8300000, guid: a30ea01dba1a64a448eeba3b97fa33ae, type: 3}
   - {fileID: 8300000, guid: b67c8c4479940a049aff3890e43dee97, type: 3}
   - {fileID: 8300000, guid: 1fa89fa8dd34cd34e85145fc64f2d8d5, type: 3}
+  getDownSounds:
+  - {fileID: 8300000, guid: eb043d241cddcad4ab822ce638f1a133, type: 3}
+  - {fileID: 8300000, guid: bb2612afd19eacb4b9a827100effcef4, type: 3}
+  - {fileID: 8300000, guid: 590bbc542affe2949ac6065117d73a54, type: 3}
 --- !u!65 &-2752081459713978200
 BoxCollider:
   m_ObjectHideFlags: 0

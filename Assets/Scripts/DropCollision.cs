@@ -80,8 +80,7 @@ public class DropCollision : MonoBehaviour
                 {
                     if (c.gameObject.name == "President")
                     {
-                        Destroy(c.gameObject);
-                        FindObjectOfType<GameOverManager>().SetGameOver();
+                        c.gameObject.GetComponent<Waypoints>().Unalive();
                     }
                     else
                     {
@@ -94,7 +93,7 @@ public class DropCollision : MonoBehaviour
                     {
                         Debug.Log(horizontal_dist);
                         Destroy(c.gameObject);
-                        FindObjectOfType<GameOverManager>().SetGameOver();
+
                     }
                     else
                     {
