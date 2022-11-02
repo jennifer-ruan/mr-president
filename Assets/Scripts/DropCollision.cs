@@ -91,8 +91,7 @@ public class DropCollision : MonoBehaviour
                 {
                     if (c.gameObject.name == "President")
                     {
-                        Debug.Log(horizontal_dist);
-                        Destroy(c.gameObject);
+                        c.gameObject.GetComponent<Waypoints>().Unalive();
 
                     }
                     else
