@@ -10,6 +10,11 @@ public class GameOverMenu : MonoBehaviour
             Debug.Log("Start Game by controller");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if (Input.GetKeyDown(KeyCode.JoystickButton2))
+        {
+            Debug.Log("return menu by controller");
+            SceneManager.LoadScene("NewMenu");
+        }
     }
     
     public void RestartGame()
