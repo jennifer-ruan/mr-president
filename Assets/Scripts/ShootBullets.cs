@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootBullets : MonoBehaviour
 {
 
-    public GameObject bullet;
+    public GameObject[] bullets;
     public GameObject shooter;
     public float speed;
     public GameObject target;
@@ -33,7 +33,7 @@ public class ShootBullets : MonoBehaviour
 
     void Shoot(){
         //Create a new bullet
-        GameObject newBullet = Instantiate(bullet, shooter.transform.position, shooter.transform.rotation) as GameObject;
+        GameObject newBullet = Instantiate(bullets[Random.Range(0, bullets.Length)], shooter.GetComponent<Collider>().transform.position, shooter.GetComponent<Collider>().transform.rotation) as GameObject;
 
         //Parent it to get a less messy workspace
         newBullet.transform.parent = shooter.transform;
