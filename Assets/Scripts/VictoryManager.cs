@@ -7,12 +7,18 @@ public class VictoryManager : MonoBehaviour
     GameObject gameWinScreen;
     GameObject getDownCoolDown;
     GameObject target;
+    GameObject bgMusic;
     bool gameHasWon = false;
+
+    
+    public AudioSource audio;
+    public AudioClip victoryAudio;
 
     void Start()
     {
         gameWinScreen = GameObject.Find("Victory Screen");
         getDownCoolDown = GameObject.Find("Get down cooldown");
+        bgMusic = GameObject.Find("Background Music");
         gameHasWon = false;
         target = GameObject.Find("President");
         gameWinScreen.SetActive(false);
@@ -32,6 +38,9 @@ public class VictoryManager : MonoBehaviour
         if (gameHasWon == false)
         {
             gameHasWon = true;
+            audio.clip = victoryAudio;
+            bgMusic.GetComponent<AudioSource>().Stop();
+            audio.Play();
             Debug.Log("Set Game Over function is called");
             getDownCoolDown.SetActive(false);
             gameWinScreen.SetActive(true);
