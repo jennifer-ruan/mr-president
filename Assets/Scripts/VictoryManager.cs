@@ -31,6 +31,17 @@ public class VictoryManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+        if (gameHasWon){
+            if (Input.GetKeyDown(KeyCode.JoystickButton1)){
+                Debug.Log("return menu by controller");
+                SceneManager.LoadScene("NewMenu");
+            }
+            if (Input.GetKeyDown(KeyCode.JoystickButton2))
+            {
+                Debug.Log("Start next lvl by controller");
+                StartNextLevel();
+            }
+        }
     }
 
     public void SetGameWin()
