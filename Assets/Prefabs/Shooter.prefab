@@ -200,7 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c74b3298dbb9d94e860c9619c9a987f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3217925364349220772, guid: 68e017a9335428c49ad4d7097ae4c275, type: 3}
+  bullets:
+  - {fileID: 9183915036431399422, guid: 3a600185aad50c24fa0c92109dc59f6b, type: 3}
+  - {fileID: 3217925364349220772, guid: 68e017a9335428c49ad4d7097ae4c275, type: 3}
+  - {fileID: 7039130867574925205, guid: a0ddecbf9ccd29b428df9fd05a4d0800, type: 3}
   shooter: {fileID: 8159818807676580612}
   speed: 0
   target: {fileID: 0}
@@ -265,15 +268,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c7d786d4b18bd8479252425428930c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.76
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c7d786d4b18bd8479252425428930c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c7d786d4b18bd8479252425428930c4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c7d786d4b18bd8479252425428930c4, type: 3}
       propertyPath: m_LocalRotation.w
