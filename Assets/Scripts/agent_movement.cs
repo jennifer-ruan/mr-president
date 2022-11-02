@@ -10,7 +10,7 @@ public class agent_movement : MonoBehaviour
     public float verticalinput;
     float speed = 10.0f;
     float speedmultiple;
-    float dragVar = 15f;
+    float dragVar = 5f;
 
     public AudioSource randomSound;
     public AudioClip[] dyingSounds;
@@ -37,7 +37,7 @@ public class agent_movement : MonoBehaviour
         president = GameObject.Find("President");
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
-        speedmultiple = 2000f;
+        //speedmultiple = 2000f;
     }
 
     // Update is called once per frame
@@ -117,7 +117,7 @@ public class agent_movement : MonoBehaviour
             yield return null;
         }
         float distance = Vector3.Distance(transform.position, targetpos);
-        speed = distance * distance * 8 * speedmultiple;
+        //speed = distance * distance * 8 * speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
         Vector3 angle = transform.position - president.transform.position;
@@ -126,11 +126,16 @@ public class agent_movement : MonoBehaviour
         // Debug.Log(transform.position.y);
         if ((transform.position.y < 1.3f) && !isGettingDown)
         {
-            rb.AddForce(targetpos - transform.position);
+            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) *5;
+            if(distance < 12)
+            {
+                movedir = Vector3.Normalize(targetpos - transform.position) * 3;
+            }
+            rb.AddForce(movedir);
         }
         // Debug.Log("force added");
 
-        //transform.forward = angle;
+        //transform.LookAt(angle);
     }
     public void Push(Vector3 dir)
     {
