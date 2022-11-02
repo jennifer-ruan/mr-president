@@ -78,8 +78,7 @@ public class ExplosionScript : MonoBehaviour
                 {
                     if (c.gameObject.name == "President")
                     {
-                        Destroy(c.gameObject);
-                        FindObjectOfType<GameOverManager>().SetGameOver();
+                        c.gameObject.GetComponent<Waypoints>().Unalive();
                     }
                     else
                     {
@@ -92,8 +91,7 @@ public class ExplosionScript : MonoBehaviour
                     if (c.gameObject.name == "President")
                     {
                         Debug.Log(dist);
-                        Destroy(c.gameObject);
-                        FindObjectOfType<GameOverManager>().SetGameOver();
+                        c.gameObject.GetComponent<Waypoints>().Unalive();
                     }
                     else
                     {
