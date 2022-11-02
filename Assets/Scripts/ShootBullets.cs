@@ -10,6 +10,8 @@ public class ShootBullets : MonoBehaviour
     public float speed;
     public GameObject target;
 
+    public AudioClip[] shootingSounds;
+
     bool isActive = false;
 
     void Start()
@@ -22,12 +24,18 @@ public class ShootBullets : MonoBehaviour
     {        
         if (collision.name == "President" && !isActive){
             isActive = true;
-            
-            //Create a new bullet
-            GameObject newBullet = Instantiate(bullet, shooter.transform.position, shooter.transform.rotation) as GameObject;
 
-            //Parent it to get a less messy workspace
-            newBullet.transform.parent = shooter.transform;
+            AudioSource.PlayClipAtPoint(shootingSounds[Random.Range(0, shootingSounds.Length)], transform.position);
+            
+            Invoke("Shoot", 0.5f);
         }
+    }
+
+    void Shoot(){
+        //Create a new bullet
+        GameObject newBullet = Instantiate(bullet, shooter.transform.position, shooter.transform.rotation) as GameObject;
+
+        //Parent it to get a less messy workspace
+        newBullet.transform.parent = shooter.transform;
     }
 }

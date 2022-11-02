@@ -204,6 +204,9 @@ MonoBehaviour:
   shooter: {fileID: 8159818807676580612}
   speed: 0
   target: {fileID: 0}
+  shootingSounds:
+  - {fileID: 8300000, guid: f11f939aa13456941aeccdc3e82e44e7, type: 3}
+  - {fileID: 8300000, guid: a3578aad610d85a4690c0c359bac7271, type: 3}
 --- !u!1 &8159818809208461934
 GameObject:
   m_ObjectHideFlags: 0

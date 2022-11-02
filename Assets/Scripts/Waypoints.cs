@@ -103,7 +103,7 @@ public class Waypoints : MonoBehaviour
         {
             Debug.Log(gameObject.name);
             Debug.Log("president is hit");
-            // AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
+            AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
             Destroy(gameObject);
         }
     }

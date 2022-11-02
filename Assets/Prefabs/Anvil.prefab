@@ -199,10 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939f45f711e3c78498fede5c9aa378f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segments: 50
-  xradius: 1
-  yradius: 1
-  ShrinkDuration: 5
-  TargetScale: {x: 0.5, y: 0.5, z: 0.5}
-  randomSound: {fileID: 0}
-  audioSources: []
+  audio: {fileID: -84909893248971971}
+  clangSounds:
+  - {fileID: 8300000, guid: c28cec9c43e7c774c8019d1754c3873f, type: 3}
+  - {fileID: 8300000, guid: c496949d3a28fa1418847286c58b4d81, type: 3}
+  - {fileID: 8300000, guid: 156d63741512394419c3f1a3e1ff9d9d, type: 3}
