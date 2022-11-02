@@ -7,7 +7,7 @@ public class PauseManager : MonoBehaviour
 
     GameObject pauseScreen;
     GameObject target;
-    bool won = false;
+    bool over = false;
 
     void Start()
     {
@@ -22,16 +22,16 @@ public class PauseManager : MonoBehaviour
 
     public void SetGamePause()
     {
-        won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
+        over = FindObjectOfType<VictoryManager>().ReturnWinStatus() || FindObjectOfType<GameOverManager>().ReturnOverStatus();
         // Debug.Log(won);
 
         // if game over disable pause function
-        if (target && !won)
+        if (target && !over)
         {
             pauseScreen.SetActive(true);
             // make the cursor visible
             Cursor.lockState = CursorLockMode.None;
-            Debug.Log(won);
+            Debug.Log(over);
         }
         // pauseScreen.SetActive(true);
         // // make the cursor visible

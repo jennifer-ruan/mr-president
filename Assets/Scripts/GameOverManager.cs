@@ -47,4 +47,9 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("return to menu");
         SceneManager.LoadScene("NewMenu");
     }
+
+    public bool ReturnOverStatus()
+    {
+        return gameHasEnded;
+    }
 }
