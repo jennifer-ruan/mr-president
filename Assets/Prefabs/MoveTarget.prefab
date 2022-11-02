@@ -119,10 +119,12 @@ MonoBehaviour:
   target: {fileID: 0}
   isGettingDown: 0
   isGetDownReady: 1
+  randomSound: {fileID: 0}
   getDownSounds:
-  - {fileID: 8300000, guid: f9ee9ed1c2e991d4fa4e0aac7cf8a7ef, type: 3}
-  - {fileID: 8300000, guid: 21e57299ed77c4449a8ee01ff91c77cc, type: 3}
-  - {fileID: 8300000, guid: 8cbf9cabffb67484c989c53e1f6130cb, type: 3}
+  - {fileID: 8300000, guid: eb043d241cddcad4ab822ce638f1a133, type: 3}
+  - {fileID: 8300000, guid: bb2612afd19eacb4b9a827100effcef4, type: 3}
+  - {fileID: 8300000, guid: 590bbc542affe2949ac6065117d73a54, type: 3}
+  pause: 0
 --- !u!82 &-6638618011678070095
 AudioSource:
   m_ObjectHideFlags: 0

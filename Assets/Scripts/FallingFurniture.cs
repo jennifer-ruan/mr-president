@@ -40,6 +40,6 @@ public class FallingFurniture : MonoBehaviour
         GameObject fallingFurniture = Instantiate(furniture, spawnLocation.transform.position, spawnLocation.transform.rotation) as GameObject;
 
         //Parent it to get a less messy workspace
-        fallingFurniture.transform.parent = spawnLocation.transform;
+        fallingFurniture.transform.parent = gameObject.transform.parent;
     }
 }

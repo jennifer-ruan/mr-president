@@ -15,6 +15,8 @@ public class TargetMovement : MonoBehaviour
     public AudioSource randomSound;
     public AudioClip[] getDownSounds;
 
+    public bool pause = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,17 +29,31 @@ public class TargetMovement : MonoBehaviour
     void Update()
     {
         if(target)
-        {
-            if (((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))) && isGetDownReady)
+        {   
+            if (!pause)
             {
-                randomSound = gameObject.GetComponent<AudioSource>();
-                randomSound.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
-                randomSound.time = 1f;
-                randomSound.Play ();
-            //     isGettingDown = true;
-            //     StartCoroutine(GetDown());
+                if (((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))) && isGetDownReady)
+                {
+                    randomSound = gameObject.GetComponent<AudioSource>();
+                    randomSound.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
+                    randomSound.Play ();
+                //     isGettingDown = true;
+                //     StartCoroutine(GetDown());
+                }
+                StartCoroutine(moveTarget());
             }
-            StartCoroutine(moveTarget());
+
+            // pause pressed
+            if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+            // Debug.Log("1 pause pressed");
+            FindObjectOfType<PauseManager>().SetGamePause();
+            // Debug.Log("2 pause pressed");
+            FindObjectOfType<PauseMenu>().PauseGame();
+            // Debug.Log("3 pause pressed");
+            pause = true;
+
+        }
+            
         }
     }
 
@@ -83,5 +99,10 @@ public class TargetMovement : MonoBehaviour
         // target movements
         transform.Translate(right * horizontalinput * Time.deltaTime * speed);
         transform.Translate(forward * verticalinput * Time.deltaTime * speed);
+    }
+
+    public void resume()
+    {
+        pause = false;
     }
 }

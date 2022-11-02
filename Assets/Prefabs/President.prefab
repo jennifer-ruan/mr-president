@@ -330,11 +330,12 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2
+  speed: 3
   getDownActivationTime: 2
   getDownCooldownTime: 3
   isGettingDown: 0
   isGetDownReady: 1
+  pause: 0
   dyingSounds:
   - {fileID: 8300000, guid: 9e91c489a14e80f4ea622536ef39043f, type: 3}
   - {fileID: 8300000, guid: 0a1ea0de1b815aa49899b066a0212052, type: 3}

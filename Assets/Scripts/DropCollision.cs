@@ -9,27 +9,22 @@ public class DropCollision : MonoBehaviour
     float lethalRad;
     float knockRad;
 
-    [Range(0,50)]
-    public int segments = 50;
-    [Range(0,5)]
-    public float xradius = 5;
-    [Range(0,5)]
-    public float yradius = 5;
-    GameObject circle;
-    LineRenderer line;
-
-    public float ShrinkDuration = 1f;
-    public Vector3 TargetScale = Vector3.one * 0.5f;
-    Vector3 startScale;
-    float t = 0;
+    Transform dieCircle;
+    Transform triggerCircle;
 
     // Start is called before the first frame update
     void Start()
     {
-        lethalRad = 2f;
-        knockRad = 5f;
         var agents = GameObject.Find("Agents").transform;
         prez = GameObject.Find("President");
+        dieCircle = gameObject.transform.parent.Find("CircleOfDying");
+        triggerCircle = gameObject.transform.parent.Find("Trigger");
+
+        lethalRad = dieCircle.localScale.x;
+        knockRad = triggerCircle.localScale.x;
+
+        Debug.Log("LETHAL RADIUS: " + lethalRad);
+        Debug.Log("KNOCK RAD: " + knockRad);
 
         foreach(Transform child in agents)
         {
@@ -38,25 +33,6 @@ public class DropCollision : MonoBehaviour
         }
         chars.Add(prez.transform);
         // Debug.Log("added Prez");
-
-        circle = new GameObject("Circle");
-        circle.transform.position = new Vector3(transform.position.x,0,transform.position.z);
-        circle.transform.rotation = Quaternion.Euler(new Vector3(90,0,0));
-        circle.AddComponent<LineRenderer>();
-        line = circle.GetComponent<LineRenderer>();
-        line.SetVertexCount (segments + 1);
-        line.useWorldSpace = false;
-
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.black, 0.0f), new GradientColorKey(Color.black, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(0.6f, 0.0f), new GradientAlphaKey(0.8f, 1.0f) }
-        );
-        line.colorGradient = gradient;
-        line.material = new Material(Shader.Find("Sprites/Default"));
-        startScale = circle.transform.localScale;
-        t = 0;
-        DrawShadow();
     }
 
     // Update is called once per frame
@@ -65,11 +41,6 @@ public class DropCollision : MonoBehaviour
         if (CharInRange())
         {
             Flatten();
-        }
-        else {
-            t += Time.deltaTime / ShrinkDuration;
-            Vector3 newScale = Vector3.Lerp(startScale, TargetScale, t);
-            circle.transform.localScale = newScale;
         }
     }
 
@@ -104,10 +75,14 @@ public class DropCollision : MonoBehaviour
                 // float dist = Vector3.Distance(transform.position, c.position);
                 if (horizontal_dist < lethalRad)
                 {
-                    Destroy(c.gameObject);
                     if (c.gameObject.name == "President")
                     {
+                        Destroy(c.gameObject);
                         FindObjectOfType<GameOverManager>().SetGameOver();
+                    }
+                    else
+                    {
+                        c.gameObject.GetComponent<agent_movement>().Unalive();
                     }
                 }
                 else if (horizontal_dist < knockRad)
@@ -127,27 +102,10 @@ public class DropCollision : MonoBehaviour
         }
     }
 
-    void DrawShadow(){
-        float x;
-        float y;
-        float z;
-
-        float angle = 20f;
-
-        for (int i = 0; i < (segments + 1); i++)
-        {
-            x = Mathf.Sin (Mathf.Deg2Rad * angle) * xradius;
-            y = Mathf.Cos (Mathf.Deg2Rad * angle) * yradius;
-
-            line.SetPosition (i,new Vector3(x,y,0) );
-
-            angle += (360f / segments);
-        }
-    }
-
     void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == "Ground"){
-            Destroy(circle);
+            Destroy(triggerCircle.gameObject);
+            Destroy(dieCircle.gameObject);
             Destroy(gameObject);
         }
     }

@@ -6,8 +6,8 @@ public class ExplosionScript : MonoBehaviour
 {
     List<Transform> chars = new List<Transform>();
     GameObject prez;
-    GameObject smallr;
-    GameObject bigr;
+    Transform smallr;
+    Transform bigr;
     public float lethalRad;
     public float knockRad;
 
@@ -28,11 +28,11 @@ public class ExplosionScript : MonoBehaviour
         chars.Add(prez.transform);
         // Debug.Log("added Prez");
 
-        smallr = GameObject.Find("smallrad");
-        bigr = GameObject.Find("bigrad");
+        smallr = transform.Find("smallrad");
+        bigr = transform.Find("bigrad");
 
-        smallr.transform.localScale = new Vector3(lethalRad, 0.001f, lethalRad);
-        bigr.transform.localScale = new Vector3(knockRad, 0.001f, knockRad);
+        smallr.localScale = new Vector3(lethalRad, 0.001f, lethalRad);
+        bigr.localScale = new Vector3(knockRad, 0.001f, knockRad);
     }
 
     // Update is called once per frame
@@ -73,11 +73,14 @@ public class ExplosionScript : MonoBehaviour
                 float dist = Vector3.Distance(transform.position, c.position);
                 if (dist < lethalRad)
                 {
-                    Destroy(c.gameObject);
-                    Debug.Log("deadge");
                     if (c.gameObject.name == "President")
                     {
+                        Destroy(c.gameObject);
                         FindObjectOfType<GameOverManager>().SetGameOver();
+                    }
+                    else
+                    {
+                        c.gameObject.GetComponent<agent_movement>().Unalive();
                     }
                 }
                 else if (dist < knockRad)

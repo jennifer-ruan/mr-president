@@ -10,7 +10,6 @@ public class rotator : MonoBehaviour
 
     public bool pause = false;
 
-
     private Transform charactor;
     private Transform pos;
     private Vector3 offset;
@@ -23,6 +22,7 @@ public class rotator : MonoBehaviour
     private float turnSpeed = 1.5f;
 
     private Transform mainCamera;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +48,7 @@ public class rotator : MonoBehaviour
         }
 
         if (target && !pause){
+
             R_H = Input.GetAxis("Mouse X");
 
             detect(Vector3.forward, Vector3.back);
@@ -57,6 +58,12 @@ public class rotator : MonoBehaviour
 
             HandleCameraRotate();
             FollowCharactor(Time.deltaTime);
+        }
+
+        if (pause){
+            // Debug.Log("camera is locked");
+            turn.x += 0f;
+
         }
 
         if (pause){

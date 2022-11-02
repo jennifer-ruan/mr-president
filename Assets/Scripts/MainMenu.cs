@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     void Update(){
-        if (Input.GetKeyDown(KeyCode.JoystickButton1)){
-            SceneManager.LoadScene("Level 1");
-        }
+        // if (Input.GetKeyDown(KeyCode.JoystickButton1)){
+        //     SceneManager.LoadScene("Level 1");
+        // }
     }
 
     public void PlayGame(){
         SceneManager.LoadScene("Level 1");
+    }
+
+    public void SelectLevel()
+    {
+        SceneManager.LoadScene("Level Select");
     }
 
     public void QuitGame(){
