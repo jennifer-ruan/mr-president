@@ -24,6 +24,8 @@ public class agent_movement : MonoBehaviour
     public float getDownCooldownTime = 3f;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
+    bool pause = false;
+    bool won;
 
     // public bool EndScreenOn = false;
 
@@ -53,7 +55,18 @@ public class agent_movement : MonoBehaviour
         // }
 
         // else {
-        if (president)
+        won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
+        if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+            // Debug.Log("1 pause pressed");
+            FindObjectOfType<PauseManager>().SetGamePause();
+            // Debug.Log("2 pause pressed");
+            FindObjectOfType<PauseMenu>().PauseGame();
+            // Debug.Log("3 pause pressed");
+            pause = true;
+
+        }
+
+        if (president && !pause)
         {
             targetpos = target.transform.position;
 
