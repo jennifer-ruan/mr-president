@@ -56,4 +56,9 @@ public class VictoryManager : MonoBehaviour
         string nextscene = currscene.Substring(0,6) + (int.Parse(currscene.Substring(6)) +1);
         SceneManager.LoadScene(nextscene);
     }
+
+    public bool ReturnWinStatus()
+    {
+        return gameHasWon;
+    }
 }
