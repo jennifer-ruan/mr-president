@@ -7,7 +7,7 @@ public class PauseManager : MonoBehaviour
 
     GameObject pauseScreen;
     GameObject target;
-    bool won;
+    bool won = false;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class PauseManager : MonoBehaviour
     public void SetGamePause()
     {
         won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
-        Debug.Log(won);
+        // Debug.Log(won);
 
         // if game over disable pause function
         if (target && !won)

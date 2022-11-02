@@ -22,7 +22,7 @@ public class rotator : MonoBehaviour
     private float turnSpeed = 1.5f;
 
     private Transform mainCamera;
-
+    bool won;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,8 @@ public class rotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+        won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
+        if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
             // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
             // Debug.Log("2 pause pressed");

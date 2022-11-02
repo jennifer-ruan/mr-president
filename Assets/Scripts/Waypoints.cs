@@ -19,7 +19,7 @@ public class Waypoints : MonoBehaviour
     public AudioClip[] getDownSounds;
 
     Rigidbody rb;
-
+    bool won;
 
     void Start()
     {
@@ -30,7 +30,8 @@ public class Waypoints : MonoBehaviour
     void Update()
     {
         // pause is pressed 
-        if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+        won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
+        if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
             // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
             // Debug.Log("2 pause pressed");

@@ -16,6 +16,7 @@ public class TargetMovement : MonoBehaviour
     public AudioClip[] getDownSounds;
 
     public bool pause = false;
+    bool won = false;
 
 
     // Start is called before the first frame update
@@ -36,13 +37,14 @@ public class TargetMovement : MonoBehaviour
             }
 
             // pause pressed
-            if (!pause && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
-            // Debug.Log("1 pause pressed");
-            FindObjectOfType<PauseManager>().SetGamePause();
-            // Debug.Log("2 pause pressed");
-            FindObjectOfType<PauseMenu>().PauseGame();
-            // Debug.Log("3 pause pressed");
-            pause = true;
+            won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
+            if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+                // Debug.Log("1 pause pressed");
+                FindObjectOfType<PauseManager>().SetGamePause();
+                // Debug.Log("2 pause pressed");
+                FindObjectOfType<PauseMenu>().PauseGame();
+                // Debug.Log("3 pause pressed");
+                pause = true;
 
         }
             
