@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715323720476408109}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29, y: 1.279, z: -3.06}
+  m_LocalPosition: {x: 0, y: 1.279, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -227,10 +227,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 81382d66403a3834ba56753371c5ae6b, type: 3}
   - {fileID: 8300000, guid: a9ce08b68ada12145964a4d945978019, type: 3}
   - {fileID: 8300000, guid: 448dbc937ca592c4cabde1b21c19fa42, type: 3}
-  getDownSounds:
-  - {fileID: 8300000, guid: f9ee9ed1c2e991d4fa4e0aac7cf8a7ef, type: 3}
-  - {fileID: 8300000, guid: 21e57299ed77c4449a8ee01ff91c77cc, type: 3}
-  - {fileID: 8300000, guid: 8cbf9cabffb67484c989c53e1f6130cb, type: 3}
   target: {fileID: 6460820490428509372, guid: 568cb925912690842a038d3a55a7c99c, type: 3}
   president: {fileID: 5430830303350530290, guid: 4786164e2dfa7f8469e92a8a526706a3, type: 3}
   jumpAmount: 5
