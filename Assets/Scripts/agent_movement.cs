@@ -124,7 +124,7 @@ public class agent_movement : MonoBehaviour
 
         rb.drag = dragVar / (distance * distance);
         // Debug.Log(transform.position.y);
-        if (transform.position.y < 1.3f)
+        if ((transform.position.y < 1.3f) && !isGettingDown)
         {
             rb.AddForce(targetpos - transform.position);
         }
