@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
 {
 
     GameObject pauseScreen;
+    GameObject target;
 
     void Start()
     {
@@ -15,13 +16,22 @@ public class PauseManager : MonoBehaviour
         // gameOverScreen.SetActive(false);
         pauseScreen = GameObject.Find("Pause Screen");
         pauseScreen.SetActive(false);
+        target = GameObject.Find("President");
     }
 
     public void SetGamePause()
     {
-        pauseScreen.SetActive(true);
-        // make the cursor visible
-        Cursor.lockState = CursorLockMode.None;
+
+        // if game over disable pause function
+        if (target)
+        {
+            pauseScreen.SetActive(true);
+            // make the cursor visible
+            Cursor.lockState = CursorLockMode.None;
+        }
+        // pauseScreen.SetActive(true);
+        // // make the cursor visible
+        // Cursor.lockState = CursorLockMode.None;
     }
 
 }
