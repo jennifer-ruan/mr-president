@@ -14,6 +14,7 @@ public class DropCollision : MonoBehaviour
 
     Transform dieCircle;
     Transform triggerCircle;
+    Transform sign;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class DropCollision : MonoBehaviour
         prez = GameObject.Find("President");
         dieCircle = gameObject.transform.parent.Find("CircleOfDying");
         triggerCircle = gameObject.transform.parent.Find("Trigger");
+        sign = gameObject.transform.parent.Find("Sign");
 
         lethalRad = dieCircle.localScale.x;
         knockRad = triggerCircle.localScale.x;
@@ -108,6 +110,7 @@ public class DropCollision : MonoBehaviour
             AudioSource.PlayClipAtPoint(clangSounds[Random.Range(0, clangSounds.Length)], transform.position);
             Destroy(triggerCircle.gameObject);
             Destroy(dieCircle.gameObject);
+            Destroy(sign.gameObject);
             Destroy(gameObject);
         }
     }
