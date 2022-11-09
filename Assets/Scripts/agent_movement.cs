@@ -25,6 +25,8 @@ public class agent_movement : MonoBehaviour
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
 
+    private Animator animator;
+
     // public bool EndScreenOn = false;
 
     // GameOverManager gameOverManager;
@@ -37,6 +39,7 @@ public class agent_movement : MonoBehaviour
         president = GameObject.Find("President");
         targetpos = target.transform.position;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
         //speedmultiple = 2000f;
     }
 
@@ -53,6 +56,7 @@ public class agent_movement : MonoBehaviour
         // }
 
         // else {
+        animator.SetFloat("speed", rb.velocity.magnitude);
         if (president)
         {
             targetpos = target.transform.position;

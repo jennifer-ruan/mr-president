@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: 569a2cc3ebe854640bacbe2bf2acf398
+guid: 185747042f6659f40960c3ecb3c0a524
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CHAR_GETDOWN_AGENT_V03
-    second: {fileID: 2100000, guid: 80c9ec589fa63684cae5b788f3acb76b, type: 2}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
