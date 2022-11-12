@@ -8,6 +8,7 @@ public class BulletCollision : MonoBehaviour
     public GameObject target;
     public float speed;
     public Vector3 prevPosition;
+    private bool shouldRagdoll;
 
     GameObject line;
     LineRenderer lr;
@@ -23,6 +24,7 @@ public class BulletCollision : MonoBehaviour
     {
         speed = Random.Range(10, 15) * 1f;
         target = GameObject.Find("President");
+        shouldRagdoll = true;
 
         var agents = GameObject.Find("Agents").transform;
         foreach(Transform child in agents)
@@ -104,7 +106,7 @@ public class BulletCollision : MonoBehaviour
                     }
                 }
             }
-            closestAgent.GetComponent<agent_movement>().Unalive();
+            closestAgent.GetComponent<agent_movement>().Unalive(shouldRagdoll);
         }
     }
 }

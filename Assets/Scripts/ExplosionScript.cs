@@ -12,6 +12,7 @@ public class ExplosionScript : MonoBehaviour
     public float knockRad;
     public AudioSource audio;
     public AudioClip explosionSound;
+    private bool shouldRagdoll;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class ExplosionScript : MonoBehaviour
         knockRad = 10f;
         var agents = GameObject.Find("Agents").transform;
         prez = GameObject.Find("President");
+        shouldRagdoll = false;
 
         foreach(Transform child in agents)
         {
@@ -82,7 +84,7 @@ public class ExplosionScript : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<agent_movement>().Unalive();
+                        c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
                     }
                 }
                 else if (dist < knockRad)

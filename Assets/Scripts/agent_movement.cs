@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class agent_movement : MonoBehaviour
 {
-
     public float horizontalinput;
     public float verticalinput;
     float speed = 10.0f;
@@ -24,6 +23,7 @@ public class agent_movement : MonoBehaviour
     public float jumpAmount = 5;
     public float getDownActivationTime = 2f;
     public float getDownCooldownTime = 6f;
+    public bool isRagdolled = false;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
 
@@ -99,43 +99,53 @@ public class agent_movement : MonoBehaviour
                 RagdollSegments.Add(c);
             }
         }
-
     }
 
     IEnumerator GetDown()
     {
-        isGetDownReady = false;
-        //get down motion
-        transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
+        if (!isRagdolled)
+        {
+            isGetDownReady = false;
+            //get down motion
+            transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
-         AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
+            AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
 
-        //stay in place on the ground
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        yield return new WaitForSeconds(getDownActivationTime);
+            //stay in place on the ground
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            yield return new WaitForSeconds(getDownActivationTime);
 
-        //restore normal constraints
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //restore normal constraints
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
-        //get up motion
-        transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
+            //get up motion
+            transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
 
-        //resume movement, get down cooldown
-        isGettingDown = false;
-        yield return new WaitForSeconds(getDownCooldownTime);
+            //resume movement, get down cooldown
+            isGettingDown = false;
+            yield return new WaitForSeconds(getDownCooldownTime);
 
-        //cooldown complete
-        isGetDownReady = true;
+            //cooldown complete
+            isGetDownReady = true;
+        }
     }
 
-    public void Unalive()
+    public void Unalive(bool shouldRagdoll)
     {
         AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
-        this.EnableRagdoll();
+        if (shouldRagdoll)
+        {
+            this.EnableRagdoll();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void EnableRagdoll()
     {
+        isRagdolled = true;
         rb.useGravity = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
         animator.enabled = false;

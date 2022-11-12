@@ -11,6 +11,7 @@ public class DropCollision : MonoBehaviour
 
     public AudioSource audio;
     public AudioClip[] clangSounds;
+    private bool shouldRagdoll;
 
     Transform dieCircle;
     Transform triggerCircle;
@@ -24,6 +25,7 @@ public class DropCollision : MonoBehaviour
         dieCircle = gameObject.transform.parent.Find("CircleOfDying");
         triggerCircle = gameObject.transform.parent.Find("Trigger");
         sign = gameObject.transform.parent.Find("Sign");
+        shouldRagdoll = false;
 
         lethalRad = dieCircle.localScale.x;
         knockRad = triggerCircle.localScale.x;
@@ -86,7 +88,7 @@ public class DropCollision : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<agent_movement>().Unalive();
+                        c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
                     }
                 }
                 else if (horizontal_dist < knockRad)
