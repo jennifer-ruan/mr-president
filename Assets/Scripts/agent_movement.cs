@@ -18,10 +18,12 @@ public class agent_movement : MonoBehaviour
     public GameObject target;
     public GameObject president;
     private List<int> shooters = new List<int>();
+    public List<Collider> RagdollSegments = new List<Collider>();
+    public Rigidbody[] RagdollRigidBodies;
     private Vector3 targetpos;
     public float jumpAmount = 5;
     public float getDownActivationTime = 2f;
-    public float getDownCooldownTime = 3f;
+    public float getDownCooldownTime = 6f;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
 
@@ -35,6 +37,9 @@ public class agent_movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.IgnoreLayerCollision(6, 10);
+        SetBones();
+        RagdollRigidBodies = GetComponentsInChildren<Rigidbody>();
         target = GameObject.Find("MoveTarget");
         president = GameObject.Find("President");
         targetpos = target.transform.position;
@@ -82,6 +87,21 @@ public class agent_movement : MonoBehaviour
         rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
     }
 
+    void SetBones()
+    {
+        Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
+
+        foreach(Collider c in colliders)
+        {
+            if (c.gameObject != this.gameObject)
+            {
+                c.isTrigger = true;
+                RagdollSegments.Add(c);
+            }
+        }
+
+    }
+
     IEnumerator GetDown()
     {
         isGetDownReady = false;
@@ -111,7 +131,24 @@ public class agent_movement : MonoBehaviour
     public void Unalive()
     {
         AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
-        Destroy(gameObject);
+        this.EnableRagdoll();
+    }
+
+    public void EnableRagdoll()
+    {
+        rb.useGravity = false;
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        animator.enabled = false;
+        animator.avatar = null;
+        foreach (Rigidbody rb in RagdollRigidBodies)
+        {
+            rb.isKinematic = false;
+        }
+        foreach(Collider c in RagdollSegments)
+        {
+            c.isTrigger = false;
+            c.attachedRigidbody.velocity = Vector3.zero;
+        }
     }
 
     IEnumerator moveAgent()

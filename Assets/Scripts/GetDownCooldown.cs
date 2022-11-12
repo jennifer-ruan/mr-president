@@ -9,8 +9,8 @@ public class GetDownCooldown : MonoBehaviour
     [SerializeField]
     private TMP_Text countdown;
     private bool isCoolingDown = false;
-    //the value of 7 is derived from the 2 second activation window plus 5 second cooldown
-    private float coolDownLength = 5f;
+    //the value of 8 is derived from the 2 second activation window plus 6 second cooldown
+    private float coolDownLength = 8f;
     private float coolDownTimer = 0f;
 
     void Start()
