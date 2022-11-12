@@ -48,29 +48,29 @@ public class rotator : MonoBehaviour
 
         }
 
-        if (target && !pause){
+        // if (target && !pause){
 
-            R_H = Input.GetAxis("Mouse X");
+        //     R_H = Input.GetAxis("Mouse X");
 
-            detect(Vector3.forward, Vector3.back);
-            detect(Vector3.back, Vector3.forward);
-            detect(Vector3.left, Vector3.right);
-            detect(Vector3.right, Vector3.left);
+        //     detect(Vector3.forward, Vector3.back);
+        //     detect(Vector3.back, Vector3.forward);
+        //     detect(Vector3.left, Vector3.right);
+        //     detect(Vector3.right, Vector3.left);
 
-            HandleCameraRotate();
-            FollowCharactor(Time.deltaTime);
-        }
-
-        if (pause){
-            // Debug.Log("camera is locked");
-            turn.x += 0f;
-
-        }
+        //     HandleCameraRotate();
+        //     FollowCharactor(Time.deltaTime);
+        // }
 
         if (pause){
             // Debug.Log("camera is locked");
             turn.x += 0f;
+
         }
+
+        // if (pause){
+        //     // Debug.Log("camera is locked");
+        //     turn.x += 0f;
+        // }
     }
     
     private void FollowCharactor(float deltaTime)
