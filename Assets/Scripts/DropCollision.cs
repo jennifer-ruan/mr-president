@@ -45,10 +45,10 @@ public class DropCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CharInRange())
-        {
-            Flatten();
-        }
+        // if (CharInRange())
+        // {
+        //     Flatten();
+        // }
     }
 
     public bool CharInRange()
@@ -80,18 +80,7 @@ public class DropCollision : MonoBehaviour
                 float horizontal_dist = Mathf.Sqrt((x_dist * x_dist) + (z_dist * z_dist));
 
                 // float dist = Vector3.Distance(transform.position, c.position);
-                if (horizontal_dist < lethalRad)
-                {
-                    if (c.gameObject.name == "President")
-                    {
-                        c.gameObject.GetComponent<Waypoints>().Unalive();
-                    }
-                    else
-                    {
-                        c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
-                    }
-                }
-                else if (horizontal_dist < knockRad)
+                if (horizontal_dist < knockRad)
                 {
                     if (c.gameObject.name == "President")
                     {
@@ -108,12 +97,20 @@ public class DropCollision : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
+        
         if (collision.gameObject.tag == "Ground"){
             AudioSource.PlayClipAtPoint(clangSounds[Random.Range(0, clangSounds.Length)], transform.position);
             Destroy(triggerCircle.gameObject);
             Destroy(dieCircle.gameObject);
             Destroy(sign.gameObject);
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Agent"){
+            collision.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
+        }
+        else if (collision.gameObject.name == "President")
+        {
+            collision.gameObject.GetComponent<Waypoints>().Unalive();
         }
     }
 }
