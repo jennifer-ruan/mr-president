@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1962153498171227823}
   - component: {fileID: 3212513082173960458}
   - component: {fileID: 824674305074185664}
-  - component: {fileID: -2844100939009045070}
+  - component: {fileID: 3334790748527266681}
   m_Layer: 7
   m_Name: inverted corner wall
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-2844100939009045070
-MeshCollider:
+--- !u!65 &3334790748527266681
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6998466848849001531, guid: 53a4ee2310062784d99e5279b2530b64, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3.8887596, z: 4}
+  m_Center: {x: 2, y: 1.9443798, z: 2}
