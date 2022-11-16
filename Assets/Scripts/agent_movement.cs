@@ -109,6 +109,9 @@ public class agent_movement : MonoBehaviour
             //get down motion
             transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
+            // shake cam
+            CameraShake.Instance.ShakeCamera(5f, 2f);
+            
             AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
 
             //stay in place on the ground

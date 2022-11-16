@@ -59,6 +59,9 @@ public class Waypoints : MonoBehaviour
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
+        // shake cam
+        CameraShake.Instance.ShakeCamera(5f, 2f);
+
         yield return new WaitForSeconds(getDownActivationTime);
 
         //get up motion
