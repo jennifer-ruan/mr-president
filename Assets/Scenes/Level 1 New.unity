@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -535,15 +535,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683635267210378222, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.16647449
+      value: 0.16647452
       objectReference: {fileID: 0}
     - target: {fileID: 2683635267210378222, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000024330989
+      value: -0.000000016552404
       objectReference: {fileID: 0}
     - target: {fileID: 2683635267210378222, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000041078105
+      value: 0.0000000027945495
       objectReference: {fileID: 0}
     - target: {fileID: 3448482357022671878, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6909,6 +6909,46 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[2]
       value: 
       objectReference: {fileID: 1711181270}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f360bd60f36b1b4d8056bd46bb14061, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 88ebb760c258bda43a0e8b731fc5c7ca, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3616fc544c6595e4697d8bbd1da32f85, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 59c0b68fabdf69b45b8aa4eee44cb709, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: d540006713bf4ca42aba3c99a68f2c9c, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: e8d4a88a9449a7842af4a53a5b3897a3, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 976dcb63491c7ec4bab65e8c7b6d31f6, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: c8bd1fb6c65833a4ca593e35128759e8, type: 3}
+    - target: {fileID: 2465359688119053421, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
+      propertyPath: getDownSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: d63811c589264534b8d8aef7dd0a172f, type: 3}
     - target: {fileID: 2465359688119053423, guid: b0c36d409c2ea8648b6fd0302fc6229f, type: 3}
       propertyPath: m_UseGravity
       value: 0

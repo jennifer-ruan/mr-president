@@ -176,9 +176,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b67c8c4479940a049aff3890e43dee97, type: 3}
   - {fileID: 8300000, guid: 1fa89fa8dd34cd34e85145fc64f2d8d5, type: 3}
   getDownSounds:
-  - {fileID: 8300000, guid: eb043d241cddcad4ab822ce638f1a133, type: 3}
-  - {fileID: 8300000, guid: bb2612afd19eacb4b9a827100effcef4, type: 3}
-  - {fileID: 8300000, guid: 590bbc542affe2949ac6065117d73a54, type: 3}
+  - {fileID: 8300000, guid: 3f360bd60f36b1b4d8056bd46bb14061, type: 3}
+  - {fileID: 8300000, guid: 88ebb760c258bda43a0e8b731fc5c7ca, type: 3}
+  - {fileID: 8300000, guid: 3616fc544c6595e4697d8bbd1da32f85, type: 3}
+  - {fileID: 8300000, guid: d540006713bf4ca42aba3c99a68f2c9c, type: 3}
+  - {fileID: 8300000, guid: 59c0b68fabdf69b45b8aa4eee44cb709, type: 3}
+  - {fileID: 8300000, guid: 976dcb63491c7ec4bab65e8c7b6d31f6, type: 3}
+  - {fileID: 8300000, guid: c8bd1fb6c65833a4ca593e35128759e8, type: 3}
+  - {fileID: 8300000, guid: d63811c589264534b8d8aef7dd0a172f, type: 3}
+  - {fileID: 8300000, guid: e8d4a88a9449a7842af4a53a5b3897a3, type: 3}
 --- !u!65 &-2752081459713978200
 BoxCollider:
   m_ObjectHideFlags: 0
