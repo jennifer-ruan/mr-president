@@ -184,23 +184,23 @@ public class agent_movement : MonoBehaviour
 
         Vector3 angle = transform.position - president.transform.position;
 
-        rb.drag = dragVar / (distance * distance);
+        //rb.drag = dragVar / (distance * distance);
         // Debug.Log(transform.position.y);
         if ((transform.position.y < 1.3f) && !isGettingDown)
         {
-            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 25;
+            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
             if(distance < 12)
             {
-                movedir = Vector3.Normalize(targetpos - transform.position) * 12;
+                movedir = Vector3.Normalize(targetpos - transform.position) * 13;
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
             
         }
-        if(distance > 2)
-        {
-            transform.LookAt(targetpos);
-        }
+        
+        targetpos.y = transform.position.y;
+        transform.LookAt(targetpos);
+        
         // Debug.Log("force added");
 
         //transform.LookAt(angle);
