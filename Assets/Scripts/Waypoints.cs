@@ -56,8 +56,10 @@ public class Waypoints : MonoBehaviour
     IEnumerator GetDown()
     {
         isGetDownReady = false;
+        float yPosition = transform.position.y;
         //get down motion
         transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
+        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
 
         // shake cam
         CameraShake.Instance.ShakeCamera(5f, 2f);
@@ -66,6 +68,7 @@ public class Waypoints : MonoBehaviour
 
         //get up motion
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
+        transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
 
         //face front
         Vector3 waypointAngle = waypoints[current].transform.position - transform.position;
