@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8955204757187358518}
-  gameOverAudio: {fileID: 8300000, guid: 03fb4fba284005e4d9836183d4a00e96, type: 3}
+  gameOverAudio: {fileID: 8300000, guid: b4851126f2b908b4db22f8ab1dc74e78, type: 3}
 --- !u!114 &6504450473324746355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio: {fileID: 8955204757187358518}
-  victoryAudio: {fileID: 8300000, guid: 0ba5e18bb64f7ea4f8318890888ae31b, type: 3}
+  victoryAudio: {fileID: 8300000, guid: 9b4bbc8fb733210468da4d93dce51d03, type: 3}
 --- !u!114 &6044492451525022743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.625
+  m_Volume: 0.504
   m_Pitch: 1
   Loop: 0
   Mute: 0
