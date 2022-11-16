@@ -65,7 +65,7 @@ public class Waypoints : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
 
         // shake cam
-        CameraShake.Instance.ShakeCamera(5f, 2f);
+        CameraShake.Instance.ShakeCamera(5f, 1f);
 
         yield return new WaitForSeconds(getDownActivationTime);
 
