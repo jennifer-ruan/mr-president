@@ -159,6 +159,7 @@ public class agent_movement : MonoBehaviour
         isRagdolled = true;
         rb.useGravity = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        this.gameObject.GetComponent<Rigidbody>().enabled = false;
         animator.enabled = false;
         animator.avatar = null;
         foreach (Rigidbody rb in RagdollRigidBodies)
