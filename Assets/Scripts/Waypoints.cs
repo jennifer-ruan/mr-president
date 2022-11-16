@@ -34,7 +34,8 @@ public class Waypoints : MonoBehaviour
     {
         // pause is pressed 
         won = FindObjectOfType<VictoryManager>().ReturnWinStatus();
-        if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape))){
+        if (!pause && !won && (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.Escape)))
+        {
             // Debug.Log("1 pause pressed");
             FindObjectOfType<PauseManager>().SetGamePause();
             // Debug.Log("2 pause pressed");
@@ -47,7 +48,8 @@ public class Waypoints : MonoBehaviour
         {
             isGettingDown = true;
             audio.clip = getDownSounds[Random.Range(0, getDownSounds.Length)];
-            audio.Play ();
+            audio.Play();
+            StartCoroutine(FindObjectOfType<GetDownSpeechBubble>().ShowSpeechBubble());
             StartCoroutine(GetDown());
         }
         if (!isGettingDown && !pause)
@@ -127,13 +129,15 @@ public class Waypoints : MonoBehaviour
         pause = false;
     }
 
-    public void Unalive(){
+    public void Unalive()
+    {
         AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
         Destroy(gameObject);
         FindObjectOfType<GameOverManager>().SetGameOver();
     }
 
-    public void Victory(){
+    public void Victory()
+    {
         animator.SetFloat("hasWon", 1f);
     }
 }
