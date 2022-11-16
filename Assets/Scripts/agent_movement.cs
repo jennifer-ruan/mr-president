@@ -188,14 +188,18 @@ public class agent_movement : MonoBehaviour
         // Debug.Log(transform.position.y);
         if ((transform.position.y < 1.3f) && !isGettingDown)
         {
-            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) *50;
+            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 25;
             if(distance < 12)
             {
-                movedir = Vector3.Normalize(targetpos - transform.position) * 20;
+                movedir = Vector3.Normalize(targetpos - transform.position) * 12;
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
             
+        }
+        if(distance > 2)
+        {
+            transform.LookAt(targetpos);
         }
         // Debug.Log("force added");
 
