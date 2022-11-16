@@ -70,6 +70,10 @@ public class ExplosionScript : MonoBehaviour
     void Explode()
     {
         Debug.Log("BOOM!!!");
+
+        // shake cam
+        CameraShake.Instance.ShakeCamera(7f, 1f);
+
         AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         foreach (Transform c in chars)
         {
