@@ -32,6 +32,12 @@ public class VictoryManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
         if (gameHasWon){
+            var agents = GameObject.Find("Agents").transform;
+            foreach(Transform child in agents)
+            {
+                child.gameObject.GetComponent<agent_movement>().Victory();
+            }
+            target.GetComponent<Waypoints>().Victory();
             if (Input.GetKeyDown(KeyCode.JoystickButton1)){
                 Debug.Log("return menu by controller");
                 SceneManager.LoadScene("NewMenu");

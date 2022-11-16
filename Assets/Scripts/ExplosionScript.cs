@@ -88,7 +88,7 @@ public class ExplosionScript : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
+                        c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll, false);
                     }
                 }
                 else if (dist < knockRad)

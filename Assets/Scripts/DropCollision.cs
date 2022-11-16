@@ -106,7 +106,7 @@ public class DropCollision : MonoBehaviour
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "Agent"){
-            collision.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll);
+            collision.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll, true);
         }
         else if (collision.gameObject.name == "President")
         {

@@ -18,6 +18,8 @@ public class Waypoints : MonoBehaviour
     public AudioClip[] dyingSounds;
     public AudioClip[] getDownSounds;
 
+    private Animator animator;
+
     Rigidbody rb;
     bool won;
 
@@ -25,6 +27,7 @@ public class Waypoints : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         audio = gameObject.GetComponent<AudioSource>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -128,5 +131,9 @@ public class Waypoints : MonoBehaviour
         AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
         Destroy(gameObject);
         FindObjectOfType<GameOverManager>().SetGameOver();
+    }
+
+    public void Victory(){
+        animator.SetFloat("hasWon", 1f);
     }
 }

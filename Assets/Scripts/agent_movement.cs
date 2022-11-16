@@ -133,12 +133,20 @@ public class agent_movement : MonoBehaviour
         }
     }
 
-    public void Unalive(bool shouldRagdoll)
+    public void Unalive(bool shouldRagdoll, bool byAnvil)
     {
         AudioSource.PlayClipAtPoint(dyingSounds[Random.Range(0, dyingSounds.Length)], transform.position);
         if (shouldRagdoll)
         {
             this.EnableRagdoll();
+        }
+        else if (byAnvil){
+            // TODO: Fix this
+            // animator.SetFloat("hasDiedByAnvil", 1f);
+            // rb.useGravity = false;
+            // this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            // animator.enabled = false;
+            // animator.avatar = null;
         }
         else
         {
@@ -195,5 +203,10 @@ public class agent_movement : MonoBehaviour
     {
         Rigidbody r = GetComponent<Rigidbody>();
         r.AddForce(dir);
+    }
+
+    public void Victory(){
+        // Currently commented out due to broken
+        // animator.SetFloat("hasWon", Random.Range(1f, 4f));
     }
 }

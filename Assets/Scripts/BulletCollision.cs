@@ -106,7 +106,7 @@ public class BulletCollision : MonoBehaviour
                     }
                 }
             }
-            closestAgent.GetComponent<agent_movement>().Unalive(shouldRagdoll);
+            closestAgent.GetComponent<agent_movement>().Unalive(shouldRagdoll, false);
         }
     }
 }
