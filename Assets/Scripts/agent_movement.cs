@@ -110,7 +110,7 @@ public class agent_movement : MonoBehaviour
             transform.rotation *= Quaternion.AngleAxis(90, Vector3.right);
 
             // shake cam
-            CameraShake.Instance.ShakeCamera(5f, 2f);
+            // CameraShake.Instance.ShakeCamera(5f, 2f);
             
             AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
 
