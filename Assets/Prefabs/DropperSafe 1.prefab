@@ -876,6 +876,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 4624529163967277247}
   clangSounds:
-  - {fileID: 8300000, guid: c28cec9c43e7c774c8019d1754c3873f, type: 3}
-  - {fileID: 8300000, guid: c496949d3a28fa1418847286c58b4d81, type: 3}
-  - {fileID: 8300000, guid: 156d63741512394419c3f1a3e1ff9d9d, type: 3}
+  - {fileID: 8300000, guid: 966192af69683e14b9c2d3782d8aecb7, type: 3}

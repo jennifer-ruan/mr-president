@@ -759,9 +759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 3366130122942419108}
   clangSounds:
-  - {fileID: 8300000, guid: c28cec9c43e7c774c8019d1754c3873f, type: 3}
-  - {fileID: 8300000, guid: c496949d3a28fa1418847286c58b4d81, type: 3}
-  - {fileID: 8300000, guid: 156d63741512394419c3f1a3e1ff9d9d, type: 3}
+  - {fileID: 8300000, guid: 31645bd9bae821d4085390be3dd51c2e, type: 3}
+  - {fileID: 8300000, guid: 1997a7de3ca176749b28507261361af3, type: 3}
+  - {fileID: 8300000, guid: 98a858baefbe2bd4eb29b84ed3cc9527, type: 3}
 --- !u!4 &4289883167293695854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e31a9b2185806964a842aa5b558b0cd0, type: 3}

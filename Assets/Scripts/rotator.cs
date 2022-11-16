@@ -106,8 +106,8 @@ public class rotator : MonoBehaviour
         Vector3 _dir = Camera.main.transform.TransformDirection(dir);
         if (Physics.SphereCast(Camera.main.transform.position, 0.5f, _dir, out hitInfo, 0.5f))
         {
-            Debug.Log(hitInfo.collider);
-            Debug.Log("hi");
+            // Debug.Log(hitInfo.collider);
+            // Debug.Log("hi");
             if(!(hitInfo.collider.ToString().Contains("PersonalSpace") || hitInfo.collider.ToString().Contains("Column")))
             {
                 float dis = hitInfo.distance;

@@ -10,6 +10,7 @@ public class ExplosionScript : MonoBehaviour
     Transform bigr;
     public float lethalRad;
     public float knockRad;
+    public float sizzleRange;
     public AudioSource audio;
     public AudioClip explosionSound;
     private bool shouldRagdoll;
@@ -20,6 +21,7 @@ public class ExplosionScript : MonoBehaviour
     {
         lethalRad = 3f;
         knockRad = 10f;
+        sizzleRange = 20f;
         var agents = GameObject.Find("Agents").transform;
         prez = GameObject.Find("President");
         shouldRagdoll = false;
