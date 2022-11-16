@@ -38,12 +38,13 @@ public class GetDownCooldown : MonoBehaviour
         if (coolDownTimer <= 0)
         {
             isCoolingDown = false;
-            countdown.text = "G";
+            countdown.text = "";
             imageCooldown.fillAmount = 0f;
         }
         else
         {
-            countdown.text = Mathf.RoundToInt(coolDownTimer).ToString();
+            //uncomment to display countdown:
+            //countdown.text = Mathf.RoundToInt(coolDownTimer).ToString();
             imageCooldown.fillAmount = coolDownTimer / coolDownLength;
         }
     }
