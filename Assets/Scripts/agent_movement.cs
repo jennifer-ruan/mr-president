@@ -159,7 +159,7 @@ public class agent_movement : MonoBehaviour
         isRagdolled = true;
         rb.useGravity = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        this.gameObject.GetComponent<Rigidbody>().enabled = false;
+        this.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
         animator.enabled = false;
         animator.avatar = null;
         foreach (Rigidbody rb in RagdollRigidBodies)
@@ -187,7 +187,7 @@ public class agent_movement : MonoBehaviour
 
         //rb.drag = dragVar / (distance * distance);
         // Debug.Log(transform.position.y);
-        if ((transform.position.y < 1.3f) && !isGettingDown)
+        if ((transform.position.y < 1.3f) && !isGettingDown && !isRagdolled)
         {
             Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
             if(distance < 12)
@@ -196,11 +196,11 @@ public class agent_movement : MonoBehaviour
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
-            
+            targetpos.y = transform.position.y;
+            transform.LookAt(targetpos);
         }
         
-        targetpos.y = transform.position.y;
-        transform.LookAt(targetpos);
+        
         
         // Debug.Log("force added");
 
