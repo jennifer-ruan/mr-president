@@ -14,7 +14,7 @@ public class CameraScript : MonoBehaviour
     {
         //target = GameObject.Find("rotator").transform;
         president = GameObject.Find("President");
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
     
     void LateUpdate ()

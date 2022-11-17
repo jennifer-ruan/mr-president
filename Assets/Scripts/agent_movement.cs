@@ -187,7 +187,7 @@ public class agent_movement : MonoBehaviour
 
         //rb.drag = dragVar / (distance * distance);
         // Debug.Log(transform.position.y);
-        if ((transform.position.y < 1.3f) && !isGettingDown && !isRagdolled)
+        if ((transform.position.y < 1.3f) & !isGettingDown & !isRagdolled)
         {
             Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
             if(distance < 12)
