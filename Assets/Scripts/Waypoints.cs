@@ -7,8 +7,8 @@ public class Waypoints : MonoBehaviour
     public GameObject[] waypoints;
     int current = 0;
     public float speed;
-    public float getDownActivationTime = 2f;
-    public float getDownCooldownTime = 3f;
+    float getDownActivationTime = 2f;
+    float getDownCooldownTime = 6f;
     float WPradius = 1;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
@@ -75,17 +75,13 @@ public class Waypoints : MonoBehaviour
         transform.rotation *= Quaternion.AngleAxis(-90, Vector3.right);
         transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
 
-        //face front
-        Vector3 waypointAngle = waypoints[current].transform.position - transform.position;
-        transform.forward = waypointAngle;
-
         //resume movement, get down cooldown
         isGettingDown = false;
+        Debug.Log(getDownCooldownTime);
         yield return new WaitForSeconds(getDownCooldownTime);
 
         //cooldown complete
         isGetDownReady = true;
-
     }
 
     void MovePresident()
@@ -99,18 +95,19 @@ public class Waypoints : MonoBehaviour
             if (current < waypoints.Length - 1)
             {
                 current++;
+                Vector3 angle = waypoints[current].transform.position - transform.position;
+                transform.forward = angle;
+                Debug.Log("CHANGE");
             }
-            if (waypoints[current].name.Substring(3) == "waypoint")
-            {
-                waypoints[current].transform.GetChild(0).gameObject.SetActive(true);
-            }
-            else if (waypoints[current].name.Substring(3) == "exit waypoint")
-            {
-                waypoints[current - 1].transform.GetChild(0).gameObject.SetActive(false);
-            }
+            // if (waypoints[current].name.Substring(3) == "waypoint")
+            // {
+            //     waypoints[current].transform.GetChild(0).gameObject.SetActive(true);
+            // }
+            // else if (waypoints[current].name.Substring(3) == "exit waypoint")
+            // {
+            //     waypoints[current - 1].transform.GetChild(0).gameObject.SetActive(false);
+            // }
         }
-        Vector3 angle = waypoints[current].transform.position - transform.position;
-        //transform.forward = angle;
         transform.position = Vector3.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
     }
 

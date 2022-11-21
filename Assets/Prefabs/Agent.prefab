@@ -225,7 +225,7 @@ MonoBehaviour:
   RagdollRigidBodies: []
   jumpAmount: 5
   getDownActivationTime: 2
-  getDownCooldownTime: 3
+  getDownCooldownTime: 6
   isRagdolled: 0
   isGettingDown: 0
   isGetDownReady: 1
