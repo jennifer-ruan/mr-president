@@ -26,6 +26,7 @@ public class Waypoints : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         audio = gameObject.GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
     }
@@ -77,7 +78,6 @@ public class Waypoints : MonoBehaviour
 
         //resume movement, get down cooldown
         isGettingDown = false;
-        Debug.Log(getDownCooldownTime);
         yield return new WaitForSeconds(getDownCooldownTime);
 
         //cooldown complete
@@ -95,8 +95,11 @@ public class Waypoints : MonoBehaviour
             if (current < waypoints.Length - 1)
             {
                 current++;
-                Vector3 angle = waypoints[current].transform.position - transform.position;
-                transform.forward = angle;
+                // Vector3 angle = waypoints[current].transform.position - transform.position;
+                // transform.forward = angle;
+                var qTo = Quaternion.LookRotation(waypoints[current].transform.position - transform.position);
+                qTo = Quaternion.Slerp(qTo, transform.rotation, 10 * Time.deltaTime);
+                rb.MoveRotation(qTo);
                 Debug.Log("CHANGE");
             }
             // if (waypoints[current].name.Substring(3) == "waypoint")
