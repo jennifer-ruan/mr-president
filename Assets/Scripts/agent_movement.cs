@@ -208,7 +208,7 @@ public class agent_movement : MonoBehaviour
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
-            Debug.Log("force added");
+            // Debug.Log("force added");
             targetpos.y = transform.position.y;
             transform.LookAt(targetpos);
         }
