@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -721,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 1821486472177434416, guid: 162c82dd23cb2e04bbf2666655319981, type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 789157679}
     - target: {fileID: 1821486472177434419, guid: 162c82dd23cb2e04bbf2666655319981, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 789157681}
     m_SelectOnRight: {fileID: 2107782648}
   m_Transition: 1
   m_Colors:
@@ -1038,7 +1038,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1746991540}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 789157681}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 1}
