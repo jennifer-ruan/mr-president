@@ -163,7 +163,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 4
+  speed: 3
   isGettingDown: 0
   isGetDownReady: 1
   pause: 0
