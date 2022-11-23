@@ -22,7 +22,7 @@ public class DropCollision : MonoBehaviour
     {
         var agents = GameObject.Find("Agents").transform;
         prez = GameObject.Find("President");
-        dieCircle = gameObject.transform.parent.Find("CircleOfDying");
+        dieCircle = gameObject.transform.parent.Find("Danger");
         triggerCircle = gameObject.transform.parent.Find("Trigger");
         sign = gameObject.transform.parent.Find("Sign");
         shouldRagdoll = false;
@@ -98,26 +98,25 @@ public class DropCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision c){
         if (c.gameObject.name == "President")
+        {
+            c.gameObject.GetComponent<Waypoints>().Unalive();
+        }
+        foreach (Transform ch in chars)
             {
-                c.gameObject.GetComponent<Waypoints>().Unalive();
-
-            }
-            foreach (Transform ch in chars)
+                if (ch != null)
                 {
-                    if (ch != null)
+                    float x_dist = Mathf.Abs(transform.transform.position.x - ch.transform.position.x);
+                    float z_dist = Mathf.Abs(transform.transform.position.z - ch.transform.position.z);
+
+                    float horizontal_dist = Mathf.Sqrt((x_dist * x_dist) + (z_dist * z_dist));
+
+                    // float dist = Vector3.Distance(transform.position, c.position);
+                    if (horizontal_dist < lethalRad)
                     {
-                        float x_dist = Mathf.Abs(transform.transform.position.x - ch.transform.position.x);
-                        float z_dist = Mathf.Abs(transform.transform.position.z - ch.transform.position.z);
-
-                        float horizontal_dist = Mathf.Sqrt((x_dist * x_dist) + (z_dist * z_dist));
-
-                        // float dist = Vector3.Distance(transform.position, c.position);
-                        if (horizontal_dist < lethalRad)
-                        {
-                            ch.gameObject.GetComponent<agent_movement>().Unalive(false, false);
-                        }
+                        ch.gameObject.GetComponent<agent_movement>().Unalive(false, false);
                     }
                 }
+        }
         AudioSource.PlayClipAtPoint(clangSounds[Random.Range(0, clangSounds.Length)], transform.position);
         Destroy(triggerCircle.gameObject);
         Destroy(dieCircle.gameObject);
