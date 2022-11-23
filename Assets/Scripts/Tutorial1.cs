@@ -27,6 +27,7 @@ public class Tutorial1 : MonoBehaviour
             Debug.Log("Start next lvl by controller");
             CloseScreen();
         }
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
