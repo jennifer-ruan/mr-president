@@ -201,10 +201,10 @@ public class agent_movement : MonoBehaviour
         
         if ((transform.position.y < 1.5f) & !isGettingDown & !isRagdolled)
         {
-            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
+            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 40;
             if (distance < 12)
             {
-                movedir = Vector3.Normalize(targetpos - transform.position) * 13;
+                movedir = Vector3.Normalize(targetpos - transform.position) * 20;
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
