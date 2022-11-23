@@ -46,6 +46,18 @@ public class agent_movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         //speedmultiple = 2000f;
+
+
+
+
+        string[] joystickNames = Input.GetJoystickNames();
+
+        foreach (string joystickName in joystickNames)
+        {
+
+            Debug.Log(joystickName);
+        }
+        
     }
 
     // Update is called once per frame

@@ -22,7 +22,7 @@ public class VictoryManager : MonoBehaviour
         gameHasWon = false;
         target = GameObject.Find("President");
         gameWinScreen.SetActive(false);
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
