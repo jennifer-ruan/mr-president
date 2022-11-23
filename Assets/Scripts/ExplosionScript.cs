@@ -107,7 +107,7 @@ public class ExplosionScript : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(c.position - transform.position) * 50f, ForceMode.Impulse);
+                        c.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(c.position - transform.position) * 25f, ForceMode.Impulse);
                     }
                 }
             }
