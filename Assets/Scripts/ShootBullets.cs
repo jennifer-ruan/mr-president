@@ -49,6 +49,7 @@ public class ShootBullets : MonoBehaviour
 
     void Shoot(){
         //Create a new bullet
+        Debug.Log("CREATING BULLET");
         GameObject newBullet = Instantiate(bullets[Random.Range(0, bullets.Length)], shooter.transform.position, shooter.transform.rotation) as GameObject;
         newBullet.GetComponent<BulletCollision>().direction = direction;
 
