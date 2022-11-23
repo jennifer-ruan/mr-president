@@ -21,8 +21,8 @@ public class agent_movement : MonoBehaviour
     public Rigidbody[] RagdollRigidBodies;
     private Vector3 targetpos;
     public float jumpAmount = 5;
-    public float getDownActivationTime = 2f;
-    public float getDownCooldownTime = 6f;
+    float getDownActivationTime = 2f;
+    float getDownCooldownTime = 6f;
     public bool isRagdolled = false;
     public bool isGettingDown = false;
     public bool isGetDownReady = true;
@@ -103,7 +103,7 @@ public class agent_movement : MonoBehaviour
     {
         Collider[] colliders = this.gameObject.GetComponentsInChildren<Collider>();
 
-        foreach(Collider c in colliders)
+        foreach (Collider c in colliders)
         {
             if (c.gameObject != this.gameObject)
             {
@@ -123,7 +123,7 @@ public class agent_movement : MonoBehaviour
 
             // shake cam
             // CameraShake.Instance.ShakeCamera(5f, 2f);
-            
+
             AudioSource.PlayClipAtPoint(smackSounds[Random.Range(0, smackSounds.Length)], transform.position);
 
             //stay in place on the ground
@@ -152,7 +152,8 @@ public class agent_movement : MonoBehaviour
         {
             this.EnableRagdoll();
         }
-        else if (byAnvil){
+        else if (byAnvil)
+        {
             // TODO: Fix this
             // animator.SetFloat("hasDiedByAnvil", 1f);
             // rb.useGravity = false;
@@ -178,7 +179,7 @@ public class agent_movement : MonoBehaviour
         {
             rb.isKinematic = false;
         }
-        foreach(Collider c in RagdollSegments)
+        foreach (Collider c in RagdollSegments)
         {
             c.isTrigger = false;
             c.attachedRigidbody.velocity = Vector3.zero;
@@ -202,7 +203,7 @@ public class agent_movement : MonoBehaviour
         if ((transform.position.y < 1.3f) & !isGettingDown & !isRagdolled)
         {
             Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
-            if(distance < 12)
+            if (distance < 12)
             {
                 movedir = Vector3.Normalize(targetpos - transform.position) * 13;
             }
@@ -211,20 +212,19 @@ public class agent_movement : MonoBehaviour
             targetpos.y = transform.position.y;
             transform.LookAt(targetpos);
         }
-        
-        
-        
         // Debug.Log("force added");
 
         //transform.LookAt(angle);
     }
+
     public void Push(Vector3 dir)
     {
         Rigidbody r = GetComponent<Rigidbody>();
         r.AddForce(dir);
     }
 
-    public void Victory(){
+    public void Victory()
+    {
         // Currently commented out due to broken
         // animator.SetFloat("hasWon", Random.Range(1f, 4f));
     }
