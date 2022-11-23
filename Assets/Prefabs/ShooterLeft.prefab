@@ -28,6 +28,10 @@ PrefabInstance:
       value: 2.980001
       objectReference: {fileID: 0}
     - target: {fileID: 6873237998787505884, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
+      propertyPath: tripwire
+      value: 
+      objectReference: {fileID: 1502732985383256874}
+    - target: {fileID: 6873237998787505884, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
@@ -125,3 +129,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
+--- !u!1 &1502732985383256874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4897964774490315400, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
+  m_PrefabInstance: {fileID: 6279098370641828258}
+  m_PrefabAsset: {fileID: 0}

@@ -634,6 +634,7 @@ MonoBehaviour:
   speed: 0
   target: {fileID: 0}
   cooldownText: {fileID: 2051309921775922780}
+  tripwire: {fileID: 4897964774490315400}
   shootingSounds:
   - {fileID: 8300000, guid: f11f939aa13456941aeccdc3e82e44e7, type: 3}
   - {fileID: 8300000, guid: a3578aad610d85a4690c0c359bac7271, type: 3}

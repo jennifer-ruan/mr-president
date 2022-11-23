@@ -11,6 +11,7 @@ public class ShootBullets : MonoBehaviour
     public GameObject target;
 
     public GameObject cooldownText;
+    public GameObject tripwire;
 
     public AudioClip[] shootingSounds;
 
@@ -29,9 +30,11 @@ public class ShootBullets : MonoBehaviour
         lastShot += Time.deltaTime;
         if (lastShot >= cooldown){
             cooldownText.GetComponent<TMPro.TextMeshPro>().text = "";
+            tripwire.GetComponent<Renderer>().enabled = true;
         }
         else {
             cooldownText.GetComponent<TMPro.TextMeshPro>().text = Mathf.Round(cooldown - lastShot).ToString();
+            tripwire.GetComponent<Renderer>().enabled = false;
         }
     }
 
