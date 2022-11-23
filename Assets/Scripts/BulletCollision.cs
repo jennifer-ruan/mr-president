@@ -79,16 +79,16 @@ public class BulletCollision : MonoBehaviour
         //     Destroy(gameObject);
         // }
         if (direction == "left"){
-            gameObject.GetComponent<Rigidbody>().AddForce(-speed, 0, 0);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-speed, 0, 0);
         }
         else if (direction == "up"){
-            gameObject.GetComponent<Rigidbody>().AddForce(0, 0, speed);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, speed);
         }
         else if (direction == "down"){
-            gameObject.GetComponent<Rigidbody>().AddForce(0, 0, -speed);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -speed);
         }
         else{
-            gameObject.GetComponent<Rigidbody>().AddForce(speed, 0, 0);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(speed, 0, 0);
         }
     }
 
@@ -124,6 +124,9 @@ public class BulletCollision : MonoBehaviour
             }
             closestAgent.GetComponent<agent_movement>().Unalive(shouldRagdoll, false);
         }
+        }
+        else {
+            Destroy(gameObject);
         }
     }
 }
