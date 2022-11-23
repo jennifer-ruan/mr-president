@@ -18,6 +18,13 @@ public class TutorialTrigger4 : MonoBehaviour
     {
         if (collision.name == "President" && !isActive)
         {
+            var agents = GameObject.Find("Agents").transform;
+
+            foreach (Transform child in agents)
+            {
+                child.gameObject.GetComponent<agent_movement>().isGettingDown = true;
+
+            }
             isActive = true;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;

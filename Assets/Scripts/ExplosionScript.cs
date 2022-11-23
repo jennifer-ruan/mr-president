@@ -66,6 +66,10 @@ public class ExplosionScript : MonoBehaviour
                     return true;
                 }
             }
+            else
+            {
+                chars.Remove(c);
+            }
         }
         return false;
     }
@@ -93,17 +97,17 @@ public class ExplosionScript : MonoBehaviour
                         c.gameObject.GetComponent<agent_movement>().Unalive(shouldRagdoll, false);
                     }
                 }
-                else if (dist < knockRad)
+                else if (dist < knockRad-2)
                 {
                     Debug.Log("weeee");
                     if (c.gameObject.name == "President")
                     {
-                        Debug.Log(dist);
+                        Debug.Log("president:" + dist);
                         c.gameObject.GetComponent<Waypoints>().Unalive();
                     }
                     else
                     {
-                        c.gameObject.GetComponent<Rigidbody>().AddForce((c.position - transform.position) * 5f, ForceMode.Impulse);
+                        c.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(c.position - transform.position) * 50f, ForceMode.Impulse);
                     }
                 }
             }

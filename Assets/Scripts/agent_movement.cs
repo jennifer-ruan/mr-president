@@ -46,17 +46,6 @@ public class agent_movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         //speedmultiple = 2000f;
-
-
-
-
-        string[] joystickNames = Input.GetJoystickNames();
-
-        foreach (string joystickName in joystickNames)
-        {
-
-            Debug.Log(joystickName);
-        }
         
     }
 
@@ -201,14 +190,13 @@ public class agent_movement : MonoBehaviour
         
         if ((transform.position.y < 1.5f) & !isGettingDown & !isRagdolled)
         {
-            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 40;
+            Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
             if (distance < 12)
             {
-                movedir = Vector3.Normalize(targetpos - transform.position) * 20;
+                movedir = Vector3.Normalize(targetpos - transform.position) * 17;
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
-            // Debug.Log("force added");
             targetpos.y = transform.position.y;
             transform.LookAt(targetpos);
         }

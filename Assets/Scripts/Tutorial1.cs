@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Tutorial1 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Transform agents;
+
+
     void Start()
     {
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
+        agents = GameObject.Find("Agents").transform;
+
+        foreach (Transform child in agents)
+        {
+            child.gameObject.GetComponent<agent_movement>().isGettingDown = true;
+            
+        }
     }
 
     void Update()
@@ -24,6 +33,11 @@ public class Tutorial1 : MonoBehaviour
     public void CloseScreen()
     {
         GameObject.Find("Tutorial 1").SetActive(false);
+        foreach (Transform child in agents)
+        {
+            child.gameObject.GetComponent<agent_movement>().isGettingDown = false;
+
+        }
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
     }
