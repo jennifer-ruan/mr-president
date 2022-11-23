@@ -7,7 +7,6 @@ public class ShootBullets : MonoBehaviour
 
     public GameObject[] bullets;
     public GameObject shooter;
-    public float speed;
     public GameObject target;
 
     public GameObject cooldownText;

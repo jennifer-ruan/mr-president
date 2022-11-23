@@ -24,7 +24,7 @@ public class BulletCollision : MonoBehaviour
 
     void Start()
     {
-        speed = Random.Range(10, 15) * 1f;
+        speed = 20 * 1f;
         target = GameObject.Find("President");
         shouldRagdoll = true;
 
@@ -103,6 +103,7 @@ public class BulletCollision : MonoBehaviour
         if (collision.gameObject.name == "President" || collision.gameObject.tag == "Agent"){
         Debug.Log("DESTROYED" + collision.gameObject.name);
         if (collision.gameObject.name == "President"){
+            Destroy(gameObject);
             Debug.Log("game over");
             collision.gameObject.GetComponent<Waypoints>().Unalive();
         }
