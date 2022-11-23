@@ -46,6 +46,18 @@ public class agent_movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         //speedmultiple = 2000f;
+
+
+
+
+        string[] joystickNames = Input.GetJoystickNames();
+
+        foreach (string joystickName in joystickNames)
+        {
+
+            Debug.Log(joystickName);
+        }
+        
     }
 
     // Update is called once per frame
@@ -66,17 +78,18 @@ public class agent_movement : MonoBehaviour
         {
             targetpos = target.transform.position;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            /*if (Input.GetKeyDown(KeyCode.Space))
             {
                 Invoke("addJumpForce", Vector3.Distance(transform.position, targetpos) * Vector3.Distance(transform.position, targetpos) * 0.02f);
-            }
+            }*/
+            moveAgent();
             if ((Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1)) && isGetDownReady)
             {
                 isGettingDown = true;
                 StartCoroutine(GetDown());
             }
 
-            StartCoroutine(moveAgent());
+            
         }
         // }
 
@@ -174,20 +187,18 @@ public class agent_movement : MonoBehaviour
         }
     }
 
-    IEnumerator moveAgent()
+    void moveAgent()
     {
-        while (isGettingDown)
+        /*while (isGettingDown)
         {
             yield return null;
-        }
+        }*/
         float distance = Vector3.Distance(transform.position, targetpos);
-        //speed = distance * distance * 8 * speedmultiple;
         Debug.DrawLine(transform.position, targetpos + new Vector3(0, 1, 0), Color.white, 100f, false);
 
         Vector3 angle = transform.position - president.transform.position;
 
-        //rb.drag = dragVar / (distance * distance);
-        // Debug.Log(transform.position.y);
+        
         if ((transform.position.y < 1.3f) & !isGettingDown & !isRagdolled)
         {
             Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
@@ -197,6 +208,7 @@ public class agent_movement : MonoBehaviour
             }
             rb.AddForce(-rb.velocity);
             rb.AddForce(movedir);
+            Debug.Log("force added");
             targetpos.y = transform.position.y;
             transform.LookAt(targetpos);
         }
