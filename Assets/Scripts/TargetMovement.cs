@@ -6,7 +6,7 @@ public class TargetMovement : MonoBehaviour
 {
     public float horizontalinput;
     public float verticalinput;
-    float speed = 10.0f;
+    float speed = 10f;
     public Transform maincamera;
     public GameObject target;
     public bool isGettingDown = false;

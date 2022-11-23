@@ -22,6 +22,14 @@ public class Tutorial5 : MonoBehaviour
 
     public void CloseScreen()
     {
+
+        var agents = GameObject.Find("Agents").transform;
+        foreach (Transform child in agents)
+        {
+            child.gameObject.GetComponent<agent_movement>().isGettingDown = false;
+
+        }
+
         GameObject.Find("Tutorial 5").SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;

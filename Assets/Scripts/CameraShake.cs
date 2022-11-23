@@ -43,7 +43,7 @@ public class CameraShake : MonoBehaviour
 
             cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 
                 Mathf.Lerp(og_intensity, 0f, (1 - (time / total_time)));
-            Debug.Log("stop shaking");
+            //Debug.Log("stop shaking");
 
 
         }
