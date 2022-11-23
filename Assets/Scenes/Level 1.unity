@@ -875,11 +875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3448482357022671878, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000019030725
+      value: 0.000000019030724
       objectReference: {fileID: 0}
     - target: {fileID: 3448482357022671878, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002811763
+      value: -0.0000000028117626
       objectReference: {fileID: 0}
     - target: {fileID: 4133042483228357884, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_Follow
@@ -975,11 +975,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8382697240706707860, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000033885165
+      value: -0.000000033885165
       objectReference: {fileID: 0}
     - target: {fileID: 8382697240706707860, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000060028045
+      value: 0.0000000060028045
       objectReference: {fileID: 0}
     - target: {fileID: 8694097456655595928, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -991,11 +991,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694097456655595928, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016942582
+      value: -0.000000016942582
       objectReference: {fileID: 0}
     - target: {fileID: 8694097456655595928, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000003001402
+      value: 0.000000003001402
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6955592280850087844, guid: 5506e0b7b3a912c4183f58e59b40b0f5, type: 3}
@@ -10134,12 +10134,13 @@ PrefabInstance:
 
 
         You
-        will control all agents as a group by moving the waypoint.
+        will control all agents as a group by moving the waypoint using WASD or the
+        left joystick on a controller. You can control the camera with your mouse
+        or the right joystick.
 
 
-        Your
-        objective is to get him to his destination by any means, even at the cost
-        of your lives. '
+        Your objective is to get him to his destination
+        by any means, even at the cost of your lives. '
       objectReference: {fileID: 0}
     - target: {fileID: 1356500998159620468, guid: 7287cac3676b01248b79dea96492967b, type: 3}
       propertyPath: m_fontSize
