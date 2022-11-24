@@ -637,7 +637,7 @@ MonoBehaviour:
   shootingSounds:
   - {fileID: 8300000, guid: f11f939aa13456941aeccdc3e82e44e7, type: 3}
   - {fileID: 8300000, guid: a3578aad610d85a4690c0c359bac7271, type: 3}
-  cooldown: 5
+  cooldown: 3
   direction: right
 --- !u!1 &8159818807676580612
 GameObject:
