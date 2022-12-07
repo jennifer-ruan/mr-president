@@ -38,6 +38,7 @@ public class agent_movement : MonoBehaviour
     void Start()
     {
         Physics.IgnoreLayerCollision(6, 10);
+        Physics.IgnoreLayerCollision(10, 10);
         SetBones();
         RagdollRigidBodies = GetComponentsInChildren<Rigidbody>();
         target = GameObject.Find("MoveTarget");
@@ -46,7 +47,7 @@ public class agent_movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         //speedmultiple = 2000f;
-        
+
     }
 
     // Update is called once per frame
@@ -78,7 +79,7 @@ public class agent_movement : MonoBehaviour
                 StartCoroutine(GetDown());
             }
 
-            
+
         }
         // }
 
@@ -187,7 +188,7 @@ public class agent_movement : MonoBehaviour
 
         Vector3 angle = transform.position - president.transform.position;
 
-        
+
         if ((transform.position.y < 1.5f) & !isGettingDown & !isRagdolled)
         {
             Vector3 movedir = Vector3.Normalize(targetpos - transform.position) * 30;
