@@ -5,18 +5,23 @@ using UnityEngine;
 public class Tutorial1 : MonoBehaviour
 {
     Transform agents;
+    bool appeared = false;
 
 
     void Start()
     {
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.None;
-        agents = GameObject.Find("Agents").transform;
-
-        foreach (Transform child in agents)
+        if (!appeared)
         {
-            child.gameObject.GetComponent<agent_movement>().isGettingDown = true;
-            
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            agents = GameObject.Find("Agents").transform;
+
+            foreach (Transform child in agents)
+            {
+                child.gameObject.GetComponent<agent_movement>().isGettingDown = true;
+
+            }
+            appeared = true;
         }
     }
 
