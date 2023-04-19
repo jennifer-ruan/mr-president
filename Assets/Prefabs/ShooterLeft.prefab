@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873237998787505884, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
       propertyPath: cooldown
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6873237998787505884, guid: e0457bdb80e7b4c4cb0dbd73d3d0523f, type: 3}
       propertyPath: tripwire

@@ -160,6 +160,7 @@ public class agent_movement : MonoBehaviour
 
     public void EnableRagdoll()
     {
+        this.gameObject.transform.parent = null;
         isRagdolled = true;
         rb.useGravity = false;
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;

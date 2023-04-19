@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -637,7 +637,7 @@ MonoBehaviour:
   shootingSounds:
   - {fileID: 8300000, guid: f11f939aa13456941aeccdc3e82e44e7, type: 3}
   - {fileID: 8300000, guid: a3578aad610d85a4690c0c359bac7271, type: 3}
-  cooldown: 3
+  cooldown: 4
   direction: right
 --- !u!1 &8159818807676580612
 GameObject:
