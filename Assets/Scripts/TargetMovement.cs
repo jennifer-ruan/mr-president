@@ -33,7 +33,7 @@ public class TargetMovement : MonoBehaviour
         {   
             if (!pause)
             {
-                StartCoroutine(moveTarget());
+                moveTarget();
             }
 
             // pause pressed
@@ -64,12 +64,9 @@ public class TargetMovement : MonoBehaviour
     //     isGetDownReady = true;
     // }
 
-    IEnumerator moveTarget()
+    void moveTarget()
     {
-        while (isGettingDown)
-        {
-            yield return null;
-        }
+        if (!isGettingDown) { 
 
         // target movements
         horizontalinput = Input.GetAxis("Horizontal");
@@ -93,6 +90,8 @@ public class TargetMovement : MonoBehaviour
         // target movements
         transform.Translate(right * horizontalinput * Time.deltaTime * speed);
         transform.Translate(forward * verticalinput * Time.deltaTime * speed);
+        }
+        
     }
 
     public void resume()

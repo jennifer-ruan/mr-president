@@ -75,7 +75,7 @@ public class ExplosionScript : MonoBehaviour
     }
     void Explode()
     {
-        Debug.Log("BOOM!!!");
+        //Debug.Log("BOOM!!!");
 
         // shake cam
         CameraShake.Instance.ShakeCamera(7f, 1f);
@@ -107,7 +107,7 @@ public class ExplosionScript : MonoBehaviour
                     }
                     else
                     {
-                        c.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(c.position - transform.position) * 40f, ForceMode.Impulse);
+                        c.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(c.position - transform.position) * 30f, ForceMode.Impulse);
                     }
                 }
             }
