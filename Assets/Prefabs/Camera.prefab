@@ -307,8 +307,8 @@ MonoBehaviour:
     Value: 0
     m_SpeedMode: 0
     m_MaxSpeed: 180
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_AccelTime: 0.03
+    m_DecelTime: 0.03
     m_InputAxisName: stickx
     m_InputAxisValue: 0
     m_InvertInput: 0
